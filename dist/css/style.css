@@ -20,10 +20,11 @@ body {
 
 #tape > .symbols-wrapper {
   width: 300px; /* TODO: set to width of the initial number of symbols  */
+  overflow: hidden;
   margin: 0 auto;
   text-align: center;
   overflow: hidden;
-  transform: translateX(75px); /* initial position */
+  transform: translateX(-1px); /* initial position */
 }
 
 #tape > .symbols-wrapper > .symbol {
@@ -61,10 +62,32 @@ body {
   border-bottom: 25px solid black;
 }
 
+#description {
+  position: fixed;
+  top: 15px;
+  left: 50%;
+  width: 500px;
+  margin-left: -250px;
+  text-align: center;
+}
+
+#description > .state {
+  margin-top: 10px;
+  display: block;
+}
+
+#description > .state.success {
+  color: green;
+}
+
+#description > .state.fail {
+  color: red;
+}
+
 #hint {
   position: fixed;
   bottom: 15px;
   left: 50%;
-  width: 400px;
-  margin-left: -200px;
+  width: 500px;
+  margin-left: -250px;
 }

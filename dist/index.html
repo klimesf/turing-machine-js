@@ -8,6 +8,10 @@
 </head>
 
 <body>
+    <p id="description">
+        This Turing Machine accepts <br/> L = {w | w = a<sup>i</sup>b<sup>j</sup>c<sup>k</sup>; i,j,k > 0}<br/>
+        <span class="state"></span>
+    </p>
     <div id="tape">
         <div class="symbols-wrapper"></div>
         <div id="cursor"></div>
@@ -17,6 +21,9 @@
     </div>
     <div class="wrapper">
     </div>
+    <script type="application/javascript">
+        window.input = ["a", "b", "b", "c"];
+    </script>
     <script src="js/script.js" type="application/javascript"></script>
 </body>
 
