@@ -1,76 +1,55 @@
-(function() {
-    let states = [0, 1, 2, 3]
-    let finalStates = [3]
-    let tape = ["0", "0", "1", "1"]
-    let head = 0
-    let state = 0
-    let symbols = []
-    let inputSymbols = []
+import {DIR_LEFT, DIR_RIGHT} from './consts.js'
+import render from './render'
+import turingMachine from './turing-machine'
+import MachineState from './MachineState'
+import ViewState from './ViewState'
 
-    let highlight = undefined
-    let direction = "right"
+// Machine State init
+// TODO: move to class and pass that around
+let machineState = new MachineState(
+    [0, 1, 2, 3],         // States
+    [3],                  // Final states
+    0,                    // Head position
+    0,                    // Initial State
+    [],                   // Transition Function
+    ["0", "0", "1", "1"], // State of the tape
+)
 
-    let render = function() {
-        let symbolsWrapper = document.querySelector(".symbols-wrapper")
-        symbolsWrapper.innerHTML = ""
+let symbols = []        // TODO: ???
+let inputSymbols = []   // TODO: ???
 
-        let blankNode = document.createElement("div")
-        blankNode.classList.add("symbol")
-        blankNode.classList.add("blank")
-        blankNode.textContent = "B"
-        symbolsWrapper.appendChild(blankNode)
+// Visualization state init
+// TODO: move to class and pass that around
+let viewState = new ViewState(DIR_RIGHT, undefined, machineState.tape)
 
-        tape.forEach((symbol, i) => {
-            let symbolNode = document.createElement("div")
-            symbolNode.classList.add("symbol")
-            if (highlight !== undefined && highlight === i) {
-              symbolNode.classList.add("highlight")
-            }
-            symbolNode.textContent = symbol
-            symbolsWrapper.appendChild(symbolNode)
-        })
+let moveHead = function(direction) {
+    let symbolsWrapper = document.querySelector(".symbols-wrapper")
+    let translateX = parseInt(getComputedStyle(symbolsWrapper).transform.split(',')[4])
+    translateX = (direction === DIR_RIGHT) ? translateX - 50 : translateX + 50
 
-        blankNode = document.createElement("div")
-        blankNode.classList.add("symbol")
-        blankNode.classList.add("blank")
-        blankNode.textContent = "B"
-        symbolsWrapper.appendChild(blankNode)
-    }
+    symbolsWrapper.style.transform = 'translateX(' + translateX + 'px)'
+}
 
-    let touringMachine = function(state, states, finalStates, tape, head) {
-        if (finalStates.indexOf(finalStates) > -1) {
-            return "finished"
+document.onkeypress = function(e) {
+    if (e.code === "Space") {
+
+        // TODO: implement turing machine as a function
+        // TODO: add turing machine states
+
+        if (machineState.head >= machineState.tape.length - 1) {
+            viewState.direction = DIR_LEFT
+        } else if (machineState.head <= 0) {
+            viewState.direction = DIR_RIGHT
         }
+
+        machineState.tape[machineState.head] = "X"
+        viewState.highlight = machineState.head
+        machineState.head += (viewState.direction === DIR_RIGHT) ? 1 : -1
+        viewState.tape = machineState.tape
+
+        moveHead(viewState.direction)
+        render(viewState)
     }
+}
 
-    let moveHead = function(direction) {
-        let symbolsWrapper = document.querySelector(".symbols-wrapper")
-        let translateX = parseInt(getComputedStyle(symbolsWrapper).transform.split(',')[4])
-        translateX = (direction === 'right') ? translateX - 50 : translateX + 50
-
-        symbolsWrapper.style.transform = 'translateX(' + translateX + 'px)'
-    }
-
-    document.onkeypress = function(e) {
-        if (e.code === "Space") {
-
-            // TODO: implement turing machine as a function
-            // TODO: add turing machine states
-
-            if (head >= tape.length - 1) {
-                direction = "left"
-            } else if (head <= 0) {
-                direction = "right"
-            }
-
-            tape[head] = "X"
-            highlight = head
-            head += (direction === 'right') ? 1 : -1
-
-            moveHead(direction)
-            render()
-        }
-    }
-
-    render()
-})();
+render(viewState)
