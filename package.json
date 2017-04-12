@@ -1,0 +1,22 @@
+{
+  "name": "turing-machine-js",
+  "version": "1.0.0",
+  "description": "Turing Machine Simulator",
+  "main": "script.js",
+  "repository": {
+    "url": "git@github.com:klimesf/turing-machine-js.git",
+    "type": "git"
+  },
+  "author": "Filip Klimeš <filip@filipklimes.cz>",
+  "license": "MIT",
+  "dependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.1",
+    "css-loader": "^0.28.0",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.3",
+    "webpack": "^2.3.3",
+    "webpack-dev-server": "^2.4.2"
+  }
+}
