@@ -160,7 +160,16 @@ resetEl.addEventListener("click", (e) => {
     } else {
         input = rawInput.split("")
     }
+    symbols = input.reduce((acc, symbol) => {
+        if (acc.indexOf(symbol) < 0) {
+            acc.push(symbol)
+        }
+        return acc
+    }, [])
+    symbols.push(BLANK)
+    console.log(symbols)
     reset(input)
+    populateTransitionTable(transitionTable, symbols)
 })
 
 // render(new ViewState(DIR_RIGHT, undefined, machineState.tape))

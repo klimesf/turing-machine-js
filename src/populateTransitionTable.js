@@ -1,6 +1,7 @@
 export default function(transitionTable, symbols) {
     let states = []
     let transitionTableHeadRowEl = document.querySelector(".transition-table > thead > tr")
+    transitionTableHeadRowEl.innerHTML = ""
 
     // Top left corner of table
     let headerCol = document.createElement("th")
@@ -15,6 +16,7 @@ export default function(transitionTable, symbols) {
     })
 
     let transitionTableBodyEl = document.querySelector(".transition-table > tbody")
+    transitionTableBodyEl.innerHTML = ""
     for (var state in transitionTable) {
         if (!transitionTable.hasOwnProperty(state)) {
             continue;
