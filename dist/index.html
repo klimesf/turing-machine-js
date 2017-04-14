@@ -9,8 +9,7 @@
 
 <body>
     <p id="description">
-        This Turing Machine accepts <br/> L = {w | w = a<sup>i</sup>b<sup>j</sup>c<sup>k</sup>; i,j,k > 0}<br/>
-        Current state: <span class="current-state">q<sub>0</sub></span>
+        This Turing Machine accepts <br/> L = {w | w = a<sup>i</sup>b<sup>j</sup>c<sup>k</sup>; i,j,k > 0}<br/> Current state: <span class="current-state">q<sub>0</sub></span>
         <span class="state"></span><br/>
     </p>
     <div id="tape">
@@ -24,9 +23,18 @@
         <div class="transition-table-wrapper">
             <h2>Transition table</h2>
             <table class="transition-table">
-                <thead><tr></tr></thead>
+                <thead>
+                    <tr></tr>
+                </thead>
                 <tbody></tbody>
             </table>
+            <div class="machine-input">
+                <form>
+                    <label for="machine-input">Input</label>
+                    <input type="text" name="machine-input" id="machine-input" />
+                    <input type="submit" id="reset" value="Reset" />
+                </form>
+            </div>
         </div>
         <a href="#" class="banner"><span>Click&nbsp;me!</span></a>
     </div>

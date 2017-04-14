@@ -36,7 +36,7 @@ let transitionTable = {
 // TODO: move to class and pass that around
 let symbols = ["a", "b", "c", "B"]
 let inputSymbols = ["a", "b", "c"]
-let input = window.input || ["a", "a", "b", "b", "c"]
+var input = window.input || ["a", "a", "b", "b", "c"]
 let machineState = new MachineState(
     [0, 1, 2, 3, 4], // States
     [4], // Final states
@@ -117,7 +117,6 @@ document.onkeypress = function(e) {
     }
 }
 
-
 document.querySelector("#editor > a.banner").addEventListener("click", (e) => {
     let editorPane = document.querySelector("#editor");
     if (editorPane.classList.contains("active")) {
@@ -127,6 +126,17 @@ document.querySelector("#editor > a.banner").addEventListener("click", (e) => {
     }
     editorPane.classList.toggle("active")
 });
+
+let machineInputEl = document.querySelector("#machine-input")
+machineInputEl.value = input.join("")
+
+let resetEl = document.querySelector("#reset")
+resetEl.addEventListener("click", (e) => {
+    e.preventDefault()
+    resetEl.blur()
+    input = document.querySelector("#machine-input").value.split("")
+    reset(input)
+})
 
 // render(new ViewState(DIR_RIGHT, undefined, machineState.tape))
 populateTransitionTable(transitionTable, symbols)

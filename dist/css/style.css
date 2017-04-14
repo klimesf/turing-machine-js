@@ -113,6 +113,10 @@ body {
     transition: all 0.5s ease;
 }
 
+#editor h2 {
+    color: white;
+}
+
 #editor>a.banner {
     position: absolute;
     left: 0;
@@ -174,4 +178,16 @@ body {
 
 #editor>.transition-table-wrapper>table>thead th {
     background-color: #444;
+}
+
+#editor .machine-input {
+    margin-top: 100px;
+}
+
+#editor .machine-input input {
+    background: #444;
+    border: 1px solid #333;
+    padding: 10px;
+    color: #aaa;
+    font-size: 1em;
 }
