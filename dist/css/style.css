@@ -66,6 +66,10 @@ body {
     border-bottom: 25px solid black;
 }
 
+.current-state {
+    color: red;
+}
+
 #description {
     position: fixed;
     top: 15px;
@@ -127,6 +131,7 @@ body {
 
 #editor>a.banner:hover {
     color: white;
+    font-weight: 400;
 }
 
 #editor>a.banner>span {
@@ -149,9 +154,9 @@ body {
     margin: 0 auto;
 }
 
-#editor>.transition-table-wrapper>table td,th {
-  border: 0;
-  border-collapse: collapse;
+#editor>.transition-table-wrapper>table td, th {
+    border: 0;
+    border-collapse: collapse;
 }
 
 #editor>.transition-table-wrapper>table tr:nth-child(2n) td, #editor>.transition-table-wrapper>table tr:nth-child(2n) th {
@@ -159,7 +164,7 @@ body {
 }
 
 #editor>.transition-table-wrapper>table tr td span {
-  color: darkgray;
+    color: darkgray;
 }
 
 #editor>.transition-table-wrapper>table td, #editor>.transition-table-wrapper>table th {

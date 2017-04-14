@@ -1,9 +1,10 @@
 export default class ViewState {
 
-    constructor(direction, highlight, tape) {
+    constructor(direction, highlight, tape, newState) {
         this.direction = direction
         this.highlight = highlight
-        this.tape = tape // TODO: immutable
+        this.tape = tape
+        this.newState = newState
     }
 
 }

@@ -22,7 +22,7 @@ export default class MachineState {
         let oldHead = this.head
         this.head += (machineStep.direction === DIR_LEFT) ? -1 : +1;
         this.state = machineStep.nextState
-        return new ViewState(machineStep.direction, oldHead, this.tape)
+        return new ViewState(machineStep.direction, oldHead, this.tape, this.state)
     }
 
 }

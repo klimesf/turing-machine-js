@@ -10,6 +10,9 @@ export default function(viewState, hard = false) {
     symbolsWrapper.innerHTML = ""
     let width = viewState.tape.length * 50
 
+    let currentStateEl = document.querySelector(".current-state")
+    currentStateEl.innerHTML = `q<sub>${viewState.newState}</sub>`
+
     // Add first blank if not present
     if (viewState.tape[0] !== BLANK) {
         width += 50

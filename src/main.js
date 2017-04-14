@@ -61,23 +61,28 @@ let reset = (input) => {
     stateEl.textContent = ""
 
     // Re-render the simulator
-    render(new ViewState(DIR_RIGHT, undefined, machineState.tape), true)
+    render(new ViewState(DIR_RIGHT, undefined, machineState.tape, 0), true)
 }
 
 document.onkeypress = function(e) {
     if (e.code === "KeyR") {
+        if (!readyForEvent) {
+            return; // Animation in progress, do nothing
+        }
+        readyForEvent = false;
         reset(window.input || input)
+        // Animation sync
+        setTimeout(() => {readyForEvent = true}, 100)
         return
     }
     if (e.code === "Space") {
         if (!readyForEvent) {
             return; // Animation in progress, do nothing
         }
-        readyForEvent = false;
-
         if (machineState.running !== STATE_RUNNING) {
             return;
         }
+        readyForEvent = false;
 
         const {
             machineStep,
