@@ -94,13 +94,13 @@ document.onkeypress = function(e) {
                 machineState.running = STATE_STOPPED_FAIL
                 stateEl = document.querySelector('.state')
                 stateEl.classList.add("fail")
-                stateEl.textContent = "Machine stopped unsuccessfuly"
+                stateEl.textContent = "Machine stopped unsuccessfully"
                 break;
             case STATE_STOPPED_SUCCESS:
                 machineState.running = STATE_STOPPED_SUCCESS
                 stateEl = document.querySelector('.state')
                 stateEl.classList.add("success")
-                stateEl.textContent = "Machine stopped successfuly"
+                stateEl.textContent = "Machine stopped successfully"
                 break;
             case STATE_RUNNING:
                 let viewState = machineState.apply(machineStep)
