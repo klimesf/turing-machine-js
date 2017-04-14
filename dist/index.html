@@ -16,18 +16,25 @@
         <div class="symbols-wrapper"></div>
         <div id="cursor"></div>
         <p id="hint">
-            Press Space to move to the next state.
+            Press "Space" to move to the next state<br/>or "R" to reset.
         </p>
     </div>
     <div id="editor">
-        <div class="banner">
-            <a href="#">Click&nbsp;me!</a>
+        <div class="transition-table-wrapper">
+            <h2>Transition table</h2>
+            <table class="transition-table">
+                <thead><tr></tr></thead>
+                <tbody></tbody>
+            </table>
         </div>
+        <a href="#" class="banner"><span>Click&nbsp;me!</span></a>
     </div>
-    <script type="application/javascript">
-        window.input = ["a", "a", "a", "a", "a", "a", "a", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "c"];
-    </script>
     <script src="js/script.js" type="application/javascript"></script>
+    <script type="application/javascript">
+        window.reset(
+            ["a", "a", "b", "b", "c"] // The initial tape
+        );
+    </script>
 </body>
 
 </html>

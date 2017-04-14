@@ -1,5 +1,5 @@
-export const DIR_RIGHT = "right"
-export const DIR_LEFT = "left"
+export const DIR_RIGHT = "R"
+export const DIR_LEFT = "L"
 
 export const STATE_RUNNING = "running"
 export const STATE_STOPPED_FAIL = "stopped-fail"

@@ -1,134 +1,172 @@
 body {
-  font-family: 'Source Code Pro', monospace;
-  margin: 0;
-  padding: 0;
-  background-color: white;
+    font-family: 'Source Code Pro', monospace;
+    margin: 0;
+    padding: 0;
+    background-color: white;
 }
 
 #tape {
-  position: fixed;
-  top: 50%;
-  left: 0;
-  min-width: 100%;
-  height: 50px;
-  margin-top: -25px; /* vertical centering */
-  background-color: white;
-  text-align: center;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+    position: fixed;
+    top: 50%;
+    left: 0;
+    min-width: 100%;
+    height: 50px;
+    margin-top: -25px;
+    /* vertical centering */
+    background-color: white;
+    text-align: center;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
 }
 
-#tape > .symbols-wrapper {
-  width: 300px; /* TODO: set to width of the initial number of symbols  */
-  overflow: hidden;
-  margin: 0 auto;
-  text-align: center;
-  overflow: hidden;
-  transition: all 0.1s ease;
-  transform: translateX(-1px); /* initial position */
+#tape>.symbols-wrapper {
+    width: 300px;
+    /* TODO: set to width of the initial number of symbols  */
+    overflow: hidden;
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden;
+    transition: all 0.1s ease;
+    transform: translateX(-1px);
+    /* initial position */
 }
 
-#tape > .symbols-wrapper > .symbol {
-  width: 50px;
-  height: 50px;
-  float: left;
-  box-sizing: border-box;
-  border-left: 1px solid gray;
-  line-height: 50px;
-  text-align: center;
-  font-size: 1.3em;
+#tape>.symbols-wrapper>.symbol {
+    width: 50px;
+    height: 50px;
+    float: left;
+    box-sizing: border-box;
+    border-left: 1px solid gray;
+    line-height: 50px;
+    text-align: center;
+    font-size: 1.3em;
 }
 
-#tape > .symbols-wrapper > .symbol:last-of-type {
-  border-right: 1px solid gray;
+#tape>.symbols-wrapper>.symbol:last-of-type {
+    border-right: 1px solid gray;
 }
 
-#tape > .symbols-wrapper > .symbol.blank {
-  color: lightgray;
+#tape>.symbols-wrapper>.symbol.blank {
+    color: lightgray;
 }
 
-
-#tape > .symbols-wrapper > .symbol.highlight {
-  color: red;
+#tape>.symbols-wrapper>.symbol.highlight {
+    color: red;
 }
 
 #cursor {
-  width: 0;
-  height: 0;
-  position: relative;
-  left: 50%;
-  margin-left: -25px; /* vertical centering */
-  border-left: 25px solid transparent;
-  border-right: 25px solid transparent;
-  border-bottom: 25px solid black;
+    width: 0;
+    height: 0;
+    position: relative;
+    left: 50%;
+    margin-left: -25px;
+    /* vertical centering */
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 25px solid black;
 }
 
 #description {
-  position: fixed;
-  top: 15px;
-  left: 50%;
-  width: 500px;
-  margin-left: -250px;
-  text-align: center;
+    position: fixed;
+    top: 15px;
+    left: 50%;
+    width: 500px;
+    margin-left: -250px;
+    text-align: center;
 }
 
-#description > .state {
-  margin-top: 10px;
-  display: block;
+#description>.state {
+    margin-top: 10px;
+    display: block;
 }
 
-#description > .state.success {
-  color: green;
+#description>.state.success {
+    color: green;
 }
 
-#description > .state.fail {
-  color: red;
+#description>.state.fail {
+    color: red;
 }
 
 #hint {
-  position: fixed;
-  bottom: 15px;
-  left: 50%;
-  width: 500px;
-  margin-left: -250px;
+    position: fixed;
+    bottom: 15px;
+    left: 50%;
+    width: 500px;
+    margin-left: -250px;
 }
 
 #editor {
-  position: fixed;
-  top: 0;
-  right: -97%;
-  width: 100%;
-  height: 100%;
-  border-left: 1px solid black;
-  background-color: #222;
-  color: white;
-  z-index: 2;
-  transition: all 0.5s ease;
+    position: fixed;
+    top: 0;
+    right: -550px;
+    width: 600px;
+    height: 100%;
+    border-left: 1px solid black;
+    background-color: #222;
+    color: white;
+    z-index: 2;
+    transition: all 0.5s ease;
 }
 
-#editor > .banner {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  margin-top: -115px;
-  width: 50px;
-  height: 300px;
-  line-height: 50px;
-  z-index: 3;
-  text-align: center;
-  float: left;
-  line-height: 270px;
+#editor>a.banner {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -115px;
+    width: 50px;
+    height: 300px;
+    line-height: 50px;
+    z-index: 3;
+    text-align: center;
+    text-decoration: none;
+    float: left;
+    line-height: 270px;
+    color: darkgray;
 }
 
-#editor > .banner > a {
+#editor>a.banner:hover {
+    color: white;
+}
+
+#editor>a.banner>span {
+    text-decoration: none;
+    display: block;
+    transform: rotateZ(-90deg);
+    transition: all 0.5s ease;
+}
+
+#editor>.transition-table-wrapper {
+    max-width: 100%;
+    padding: 0 auto;
+    margin: 100px 0 0;
+    text-align: center;
+}
+
+#editor>.transition-table-wrapper>table {
+    table-layout: auto;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+#editor>.transition-table-wrapper>table td,th {
+  border: 0;
+  border-collapse: collapse;
+}
+
+#editor>.transition-table-wrapper>table tr:nth-child(2n) td, #editor>.transition-table-wrapper>table tr:nth-child(2n) th {
+    background-color: #2b2b2b;
+}
+
+#editor>.transition-table-wrapper>table tr td span {
   color: darkgray;
-  text-decoration: none;
-  display: block;
-  transform: rotateZ(-90deg);
-  transition: all 0.5s ease;
 }
 
+#editor>.transition-table-wrapper>table td, #editor>.transition-table-wrapper>table th {
+    margin: 0;
+    padding: 8px 20px;
+}
 
-#editor > .banner > a:hover {
-  color: white;
+#editor>.transition-table-wrapper>table>thead th {
+    background-color: #444;
 }

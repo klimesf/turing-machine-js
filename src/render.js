@@ -5,7 +5,7 @@ import {
 } from './consts.js'
 import ViewState from './ViewState.js'
 
-export default function(viewState) {
+export default function(viewState, hard = false) {
     let symbolsWrapper = document.querySelector(".symbols-wrapper")
     symbolsWrapper.innerHTML = ""
     let width = viewState.tape.length * 50
@@ -42,7 +42,7 @@ export default function(viewState) {
 
     symbolsWrapper.style.width = width + "px"
     let translateX = parseInt(getComputedStyle(symbolsWrapper).transform.split(',')[4])
-    if (translateX === -1) {
+    if (translateX === -1 || hard) {
         translateX = width / 2 - 25
     }
     if (viewState.direction === DIR_RIGHT) {
