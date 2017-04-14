@@ -167,7 +167,6 @@ resetEl.addEventListener("click", (e) => {
         return acc
     }, [])
     symbols.push(BLANK)
-    console.log(symbols)
     reset(input)
     populateTransitionTable(transitionTable, symbols)
 })
