@@ -9,7 +9,7 @@ body {
   position: fixed;
   top: 50%;
   left: 0;
-  width: 100%;
+  min-width: 100%;
   height: 50px;
   margin-top: -25px; /* vertical centering */
   background-color: white;
@@ -24,6 +24,7 @@ body {
   margin: 0 auto;
   text-align: center;
   overflow: hidden;
+  transition: all 0.1s ease;
   transform: translateX(-1px); /* initial position */
 }
 
@@ -90,4 +91,44 @@ body {
   left: 50%;
   width: 500px;
   margin-left: -250px;
+}
+
+#editor {
+  position: fixed;
+  top: 0;
+  right: -97%;
+  width: 100%;
+  height: 100%;
+  border-left: 1px solid black;
+  background-color: #222;
+  color: white;
+  z-index: 2;
+  transition: all 0.5s ease;
+}
+
+#editor > .banner {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -115px;
+  width: 50px;
+  height: 300px;
+  line-height: 50px;
+  z-index: 3;
+  text-align: center;
+  float: left;
+  line-height: 270px;
+}
+
+#editor > .banner > a {
+  color: darkgray;
+  text-decoration: none;
+  display: block;
+  transform: rotateZ(-90deg);
+  transition: all 0.5s ease;
+}
+
+
+#editor > .banner > a:hover {
+  color: white;
 }

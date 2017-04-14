@@ -42,8 +42,14 @@ let machineState = new MachineState(
 let symbols = [] // TODO: ???
 let inputSymbols = [] // TODO: ???
 
+let readyForEvent = true;
+
 document.onkeypress = function(e) {
     if (e.code === "Space") {
+        if (!readyForEvent) {
+            return; // Animation in progress, do nothing
+        }
+        readyForEvent = false;
 
         if (machineState.running !== STATE_RUNNING) {
             return;
@@ -75,7 +81,27 @@ document.onkeypress = function(e) {
             default:
                 console.err("Unknown machine state")
         }
+
+        // Animation sync
+        setTimeout(() => {readyForEvent = true}, 100);
     }
 }
 
+
+document.querySelector("#editor > .banner > a").addEventListener("click", (e) => {
+    let editorPane = document.querySelector("#editor");
+    if (editorPane.classList.contains("active")) {
+        editorPane.style.right = "-97%"
+    } else {
+        editorPane.style.right = "-5%"
+    }
+    editorPane.classList.toggle("active")
+});
+
 render(new ViewState(DIR_RIGHT, undefined, machineState.tape))
+
+// Export
+window.render = render
+window.MachineState = MachineState
+window.ViewState = ViewState
+window.machineState = machineState

@@ -3,6 +3,7 @@ import {
     DIR_RIGHT,
     DIR_LEFT
 } from './consts.js'
+import ViewState from './ViewState.js'
 
 export default function(viewState) {
     let symbolsWrapper = document.querySelector(".symbols-wrapper")
