@@ -13,7 +13,7 @@ import MachineStep from './MachineStep'
 import ViewState from './ViewState'
 import populateTransitionTable from './populateTransitionTable'
 
-let transitionTable = {
+var transitionTable = {
     0: {
         "a": new MachineStep(1, "a", DIR_RIGHT)
     },
@@ -31,13 +31,12 @@ let transitionTable = {
     }
 }
 
-
 // Machine State init
 // TODO: move to class and pass that around
-let symbols = ["a", "b", "c", "B"]
-let inputSymbols = ["a", "b", "c"]
+var symbols = ["a", "b", "c", "B"]
+var inputSymbols = ["a", "b", "c"]
 var input = window.input || ["a", "a", "b", "b", "c"]
-let machineState = new MachineState(
+var machineState = new MachineState(
     [0, 1, 2, 3, 4], // States
     [4], // Final states
     0, // Head position
@@ -134,7 +133,33 @@ let resetEl = document.querySelector("#reset")
 resetEl.addEventListener("click", (e) => {
     e.preventDefault()
     resetEl.blur()
-    input = document.querySelector("#machine-input").value.split("")
+    let rawInput = input = document.querySelector("#machine-input").value
+    if (rawInput === "tourette") {
+        input = "fuck".split("")
+        machineState = new MachineState(
+            [0, 1, 2, 3, 4], // States
+            [4], // Final states
+            0, // Head position
+            0, // Initial State
+            {
+                0: {
+                    "f": new MachineStep(1, "s", DIR_RIGHT)
+                },
+                1: {
+                    "u": new MachineStep(2, "h", DIR_RIGHT)
+                },
+                2: {
+                    "c": new MachineStep(3, "i", DIR_RIGHT)
+                },
+                3: {
+                    "k": new MachineStep(4, "t", DIR_RIGHT)
+                }
+            }, // Transition Function
+            input.slice(), // State of the tape
+        )
+    } else {
+        input = rawInput.split("")
+    }
     reset(input)
 })
 
