@@ -139,36 +139,40 @@ resetEl.addEventListener("click", (e) => {
     let rawInput = input = document.querySelector("#machine-input").value
     if (rawInput === "tourette") {
         input = "fuck".split("")
+        states = [0, 1, 2, 3, 4]
+        finalStates = [4]
+        symbols = ["f", "u", "c", "k"]
+        transitionTable = {
+            0: {
+                "f": new MachineStep(1, "s", DIR_RIGHT)
+            },
+            1: {
+                "u": new MachineStep(2, "h", DIR_RIGHT)
+            },
+            2: {
+                "c": new MachineStep(3, "i", DIR_RIGHT)
+            },
+            3: {
+                "k": new MachineStep(4, "t", DIR_RIGHT)
+            }
+        }
         machineState = new MachineState(
-            [0, 1, 2, 3, 4], // States
-            [4], // Final states
+            states, // States
+            finalStates, // Final states
             0, // Head position
             0, // Initial State
-            {
-                0: {
-                    "f": new MachineStep(1, "s", DIR_RIGHT)
-                },
-                1: {
-                    "u": new MachineStep(2, "h", DIR_RIGHT)
-                },
-                2: {
-                    "c": new MachineStep(3, "i", DIR_RIGHT)
-                },
-                3: {
-                    "k": new MachineStep(4, "t", DIR_RIGHT)
-                }
-            }, // Transition Function
+            transitionTable, // Transition Function
             input.slice(), // State of the tape
         )
     } else {
         input = rawInput.split("")
+        symbols = input.reduce((acc, symbol) => {
+            if (acc.indexOf(symbol) < 0) {
+                acc.push(symbol)
+            }
+            return acc
+        }, [])
     }
-    symbols = input.reduce((acc, symbol) => {
-        if (acc.indexOf(symbol) < 0) {
-            acc.push(symbol)
-        }
-        return acc
-    }, [])
     symbols.push(BLANK)
     reset(input)
     populateTransitionTable(transitionTable, symbols, machineState)
