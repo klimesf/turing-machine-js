@@ -1,4 +1,6 @@
-export default function(transitionTable, symbols) {
+import MachineStep from './MachineStep'
+
+export default function(transitionTable, symbols, machineState) {
     let states = []
     let transitionTableHeadRowEl = document.querySelector(".transition-table > thead > tr")
     transitionTableHeadRowEl.innerHTML = ""
@@ -8,6 +10,7 @@ export default function(transitionTable, symbols) {
         }
         states.push(state)
     }
+    states.pop() // Dont display final state
 
     // Top left corner of table
     let headerCol = document.createElement("th")
@@ -23,9 +26,9 @@ export default function(transitionTable, symbols) {
 
     let transitionTableBodyEl = document.querySelector(".transition-table > tbody")
     transitionTableBodyEl.innerHTML = ""
-    for (var state in transitionTable) {
+    states.forEach((state) => {
         if (!transitionTable.hasOwnProperty(state)) {
-            continue;
+            return;
         }
         let stateRow = document.createElement("tr")
 
@@ -39,9 +42,9 @@ export default function(transitionTable, symbols) {
             if (transitionTable[state].hasOwnProperty(symbol)) {
                 let step = transitionTable[state][symbol]
                 let nextState = step.nextState < states.length ? step.nextState : "F"
-                col.innerHTML = `q<sub>${nextState}</sub>`
-                + `<span>|</span>${step.rewrite}`
-                + `<span>|</span>${step.direction}`
+                col.innerHTML = `q<sub>${nextState}</sub>` +
+                    `<span>|</span>${step.rewrite}` +
+                    `<span>|</span>${step.direction}`
             }
             col.dataset.state = state
             col.dataset.symbol = symbol
@@ -51,5 +54,40 @@ export default function(transitionTable, symbols) {
 
         // Append the row
         transitionTableBodyEl.appendChild(stateRow)
+    })
+
+    let addInputListener = (col) => {
+        col.addEventListener("click", (e) => {
+            if (!col.classList.contains("editing")) {
+                let content = col.textContent.length > 0 ? col.textContent : ""
+                col.innerHTML = `<input value="${content}" type="text"/>`
+                col.classList.add("editing")
+                document.querySelector("#set-transitions").style.display = "inline"
+            }
+        })
     }
+    document.querySelectorAll("td.transition").forEach(col => addInputListener(col))
+
+    document.querySelector("#set-transitions").addEventListener("click", (e) => {
+        e.preventDefault()
+        document.querySelectorAll("td.transition").forEach((col) => {
+            let inputEl = col.querySelector("input")
+            if (inputEl) {
+                if (!transitionTable.hasOwnProperty(col.dataset.state)) {
+                    transitionTable[col.dataset.state] = {}
+                }
+                if (!transitionTable[col.dataset.state].hasOwnProperty[col.dataset.symbol]) {
+                    transitionTable[col.dataset.state][col.dataset.symbol] = {}
+                }
+                let [newState, rewrite, direction] = inputEl.value.split("|")
+                newState = newState.replace("q", "")
+                transitionTable[col.dataset.state][col.dataset.symbol] = new MachineStep(parseInt(newState), rewrite, direction)
+
+                col.classList.remove("editing")
+                col.innerHTML = inputEl.value
+                addInputListener(col)
+            }
+        })
+        machineState.transitionTable = transitionTable
+    })
 }

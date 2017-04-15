@@ -28,7 +28,8 @@ var transitionTable = {
     3: {
         "c": new MachineStep(3, "c", DIR_RIGHT),
         "B": new MachineStep(4, BLANK, DIR_LEFT)
-    }
+    },
+    4: {}
 }
 
 // Machine State init
@@ -36,9 +37,11 @@ var transitionTable = {
 var symbols = ["a", "b", "c", "B"]
 var inputSymbols = ["a", "b", "c"]
 var input = window.input || ["a", "a", "b", "b", "c"]
+var states = [0, 1, 2, 3, 4]
+var finalStates = [4]
 var machineState = new MachineState(
-    [0, 1, 2, 3, 4], // States
-    [4], // Final states
+    states, // States
+    finalStates, // Final states
     0, // Head position
     0, // Initial State
     transitionTable, // Transition Function
@@ -168,10 +171,20 @@ resetEl.addEventListener("click", (e) => {
     }, [])
     symbols.push(BLANK)
     reset(input)
-    populateTransitionTable(transitionTable, symbols)
+    populateTransitionTable(transitionTable, symbols, machineState)
 })
 
 // render(new ViewState(DIR_RIGHT, undefined, machineState.tape))
-populateTransitionTable(transitionTable, symbols)
+populateTransitionTable(transitionTable, symbols, machineState)
+
+document.querySelector("#add-state").addEventListener("click", (e) => {
+    e.preventDefault()
+    let newState = states.reduce((max, val) => {return val > max ? val : max}, 0) + 1
+    states.push(newState)
+    transitionTable[newState] = {}
+    machineState.transitionTable = transitionTable
+    machineState.finalStates = [newState]
+    populateTransitionTable(transitionTable, symbols, machineState)
+})
 
 window.reset = reset

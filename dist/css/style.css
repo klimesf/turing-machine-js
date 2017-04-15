@@ -184,10 +184,28 @@ body {
     margin-top: 100px;
 }
 
-#editor .machine-input input {
+#editor input {
     background: #444;
     border: 1px solid #333;
     padding: 10px;
     color: #aaa;
     font-size: 1em;
+}
+
+#editor td input {
+    width: 50px;
+}
+
+#set-transitions {
+    display: none;
+}
+
+#add-state {
+    color: white;
+    text-decoration: none;
+    transition: all 0.5s ease;
+}
+
+#add-state:hover {
+    color: lightblue;
 }
