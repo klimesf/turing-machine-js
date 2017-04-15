@@ -111,6 +111,7 @@ body {
     color: white;
     z-index: 2;
     transition: all 0.5s ease;
+    overflow: scroll;
 }
 
 #editor h2 {
@@ -182,6 +183,7 @@ body {
 
 #editor .machine-input {
     margin-top: 100px;
+    margin-bottom: 100px;
 }
 
 #editor input {
