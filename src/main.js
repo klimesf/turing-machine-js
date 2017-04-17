@@ -14,7 +14,8 @@ import ViewState from './ViewState'
 import populateTransitionTable from './populateTransitionTable'
 import {
     set301,
-    set302
+    set302,
+    set31
 } from './exercises.js'
 
 var transitionTable = {
@@ -150,7 +151,7 @@ document.querySelector("a#space").addEventListener("click", (e) => {
 document.querySelector("#editor > a.banner").addEventListener("click", (e) => {
     let editorPane = document.querySelector("#editor");
     if (editorPane.classList.contains("active")) {
-        editorPane.style.right = "-550px"
+        editorPane.style.right = "-750px"
     } else {
         editorPane.style.right = "0"
     }
@@ -219,6 +220,9 @@ document.querySelector("#add-state").addEventListener("click", (e) => {
 })
 
 switch (window.location.hash) {
+    case "#cv31":
+        input = set31(transitionTable, machineState, reset)
+        break
     case "#cv302":
         input = set302(transitionTable, machineState, reset)
         break
@@ -236,6 +240,10 @@ document.querySelector("a#cv301").addEventListener("click", (e) => {
 
 document.querySelector("a#cv302").addEventListener("click", (e) => {
     input = set302(transitionTable, machineState, reset, input)
+})
+
+document.querySelector("a#cv31").addEventListener("click", (e) => {
+    input = set31(transitionTable, machineState, reset, input)
 })
 
 window.reset = reset

@@ -103,8 +103,8 @@ body {
 #editor {
     position: fixed;
     top: 0;
-    right: -550px;
-    width: 600px;
+    right: -750px;
+    width: 800px;
     height: 100%;
     border-left: 1px solid black;
     background-color: #222;

@@ -88,4 +88,57 @@ let set302 = (transitionTable, machineState, reset, input) => {
     return input
 }
 
-export {set301, set302}
+let set31 = (transitionTable, machineState, reset, input) => {
+    transitionTable = {
+        0: {
+            "0": new MachineStep(1, "0", DIR_LEFT),
+            "1": new MachineStep(1, "1", DIR_LEFT),
+            "B": new MachineStep(7, "0", DIR_RIGHT)
+        },
+        1: {
+            "B": new MachineStep(2, "X", DIR_RIGHT)
+        },
+        2: {
+            "0": new MachineStep(3, "Y", DIR_LEFT),
+            "1": new MachineStep(3, "Z", DIR_LEFT)
+        },
+        3: {
+            "0": new MachineStep(3, "0", DIR_LEFT),
+            "1": new MachineStep(3, "1", DIR_LEFT),
+            "X": new MachineStep(3, "X", DIR_LEFT),
+            "B": new MachineStep(4, "0", DIR_RIGHT)
+        },
+        4: {
+            "0": new MachineStep(4, "0", DIR_RIGHT),
+            "1": new MachineStep(4, "1", DIR_RIGHT),
+            "X": new MachineStep(4, "X", DIR_RIGHT),
+            "Y": new MachineStep(5, "0", DIR_RIGHT),
+            "Z": new MachineStep(5, "1", DIR_RIGHT)
+        },
+        5: {
+            "0": new MachineStep(3, "Y", DIR_LEFT),
+            "1": new MachineStep(3, "Z", DIR_LEFT),
+            "B": new MachineStep(6, "B", DIR_LEFT)
+        },
+        6: {
+            "0": new MachineStep(6, "0", DIR_LEFT),
+            "1": new MachineStep(6, "1", DIR_LEFT),
+            "X": new MachineStep(7, "0", DIR_RIGHT)
+        },
+        7: {}
+    }
+    machineState.transitionFunction = transitionTable
+    machineState.states = [0, 1, 2, 3, 4, 5, 6, 7]
+    machineState.finalStates = [7]
+    document.querySelector(".description").innerHTML = "This Turing Machine realizes function<br/> f(w) = 0<sup>k+1</sup>w, k = |w|";
+    input = ["0", "1", "1"]
+    reset(input)
+    populateTransitionTable(transitionTable, ["0", "1", "X", "Y", "Z", BLANK], machineState)
+    return input
+}
+
+export {
+    set301,
+    set302,
+    set31
+}

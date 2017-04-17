@@ -36,7 +36,7 @@ export default function(viewState, hard = false) {
     // Add last blank if not present
     if (viewState.tape[viewState.tape.length - 1] !== BLANK) {
         width += 50
-        blankNode = document.createElement("div")
+        let blankNode = document.createElement("div")
         blankNode.classList.add("symbol")
         blankNode.classList.add("blank")
         blankNode.textContent = BLANK
@@ -49,8 +49,14 @@ export default function(viewState, hard = false) {
         translateX = width / 2 - 25
     }
     if (viewState.direction === DIR_RIGHT) {
+      if (viewState.added) {
+          translateX -=25
+      }
         translateX -= 50
     } else if (viewState.direction === DIR_LEFT) {
+      if (viewState.added) {
+          translateX +=25
+      }
         translateX += 50
     }
     symbolsWrapper.style.transform = 'translateX(' + translateX + 'px)'

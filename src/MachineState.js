@@ -19,10 +19,16 @@ export default class MachineState {
 
     apply(machineStep) {
         this.tape[this.head] = machineStep.rewrite
+        let added = false
+        if (this.head == -1) {
+            this.tape.unshift(machineStep.rewrite)
+            this.head = 0
+            added = true
+        }
         let oldHead = this.head
         this.head += (machineStep.direction === DIR_LEFT) ? -1 : +1;
         this.state = machineStep.nextState
-        return new ViewState(machineStep.direction, oldHead, this.tape, this.state)
+        return new ViewState(machineStep.direction, oldHead, this.tape, this.state, added)
     }
 
 }
