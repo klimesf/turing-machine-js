@@ -6,7 +6,7 @@ import {
     BLANK
 } from './consts.js'
 
-let set71 = (transitionTable, machineState, reset) => {
+let set71 = (transitionTable, machineState, reset, input) => {
     transitionTable = {
         0: {
             "a": new MachineStep(1, "a", DIR_RIGHT)
@@ -29,11 +29,13 @@ let set71 = (transitionTable, machineState, reset) => {
     machineState.states = [0, 1, 2, 3, 4]
     machineState.finalStates = [4]
     document.querySelector(".description").innerHTML = "This Turing Machine accepts <br/> L = {w | w = a<sup>i</sup>b<sup>j</sup>c<sup>k</sup>; i,j,k > 0}";
-    reset(["a", "a", "b", "b", "c"])
+    input = ["a", "a", "b", "b", "c"]
+    reset(input)
     populateTransitionTable(transitionTable, ["a", "b", "c", BLANK], machineState)
+    return input
 }
 
-let set72 = (transitionTable, machineState, reset) => {
+let set72 = (transitionTable, machineState, reset, input) => {
     transitionTable = {
         0: {
             "a": new MachineStep(1, BLANK, DIR_RIGHT)
@@ -80,8 +82,10 @@ let set72 = (transitionTable, machineState, reset) => {
     machineState.states = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     machineState.finalStates = [9]
     document.querySelector(".description").innerHTML = "This Turing Machine accepts <br/> L = {w | w = a<sup>i</sup>b<sup>j</sup>c<sup>k</sup>; i,j,k > 0, i+j=k}";
-    reset(["a", "a", "b", "b", "c", "c", "c", "c"])
+    input = ["a", "a", "b", "b", "c", "c", "c", "c"]
+    reset(input)
     populateTransitionTable(transitionTable, ["a", "b", "c", BLANK], machineState)
+    return input
 }
 
 export {set71, set72}

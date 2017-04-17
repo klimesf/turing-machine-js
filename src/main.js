@@ -78,7 +78,7 @@ let rPressed = () => {
         return; // Animation in progress, do nothing
     }
     readyForEvent = false;
-    reset(window.input || input)
+    reset(input)
     // Animation sync
     setTimeout(() => {
         readyForEvent = true
@@ -220,22 +220,22 @@ document.querySelector("#add-state").addEventListener("click", (e) => {
 
 switch (window.location.hash) {
     case "#cv72":
-        set72(transitionTable, machineState, reset)
+        input = set72(transitionTable, machineState, reset)
         break
     case "#cv71":
     default:
-        set71(transitionTable, machineState, reset)
+        input = set71(transitionTable, machineState, reset)
         // render(new ViewState(DIR_RIGHT, undefined, machineState.tape))
         populateTransitionTable(transitionTable, symbols, machineState)
 }
 
 
 document.querySelector("a#cv71").addEventListener("click", (e) => {
-    set71(transitionTable, machineState, reset)
+    input = set71(transitionTable, machineState, reset, input)
 })
 
 document.querySelector("a#cv72").addEventListener("click", (e) => {
-    set72(transitionTable, machineState, reset)
+    input = set72(transitionTable, machineState, reset, input)
 })
 
 window.reset = reset
