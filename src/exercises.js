@@ -88,6 +88,48 @@ let set302 = (transitionTable, machineState, reset, input) => {
     return input
 }
 
+let set303 = (transitionTable, machineState, reset, input) => {
+    transitionTable = {
+        0: {
+            "a": new MachineStep(1, "B", DIR_RIGHT),
+            "b": new MachineStep(0, "B", DIR_RIGHT),
+            "B": new MachineStep(6, "B", DIR_RIGHT)
+        },
+        1: {
+            "a": new MachineStep(1, "a", DIR_RIGHT),
+            "b": new MachineStep(2, "X", DIR_RIGHT)
+        },
+        2: {
+            "b": new MachineStep(2, "b", DIR_RIGHT),
+            "c": new MachineStep(2, "c", DIR_RIGHT),
+            "B": new MachineStep(3, "B", DIR_LEFT)
+        },
+        3: {
+            "c": new MachineStep(4, "B", DIR_LEFT)
+        },
+        4: {
+            "b": new MachineStep(5, "b", DIR_LEFT),
+            "c": new MachineStep(4, "c", DIR_LEFT),
+            "X": new MachineStep(5, "b", DIR_LEFT)
+        },
+        5: {
+            "a": new MachineStep(5, "a", DIR_LEFT),
+            "b": new MachineStep(5, "b", DIR_LEFT),
+            "X": new MachineStep(1, "b", DIR_RIGHT),
+            "B": new MachineStep(0, "B", DIR_RIGHT)
+        },
+        6: {}
+    }
+    machineState.transitionFunction = transitionTable
+    machineState.states = [0, 1, 2, 3, 4, 5, 6]
+    machineState.finalStates = [6]
+    document.querySelector(".description").innerHTML = "This Turing Machine accepts <br/> L = {w | w = a<sup>i</sup>b<sup>j</sup>c<sup>k</sup>; i,j,k > 0, i*j=k}";
+    input = ["a", "a", "b", "b", "c", "c", "c", "c"]
+    reset(input)
+    populateTransitionTable(transitionTable, ["a", "b", "c", "X", BLANK], machineState)
+    return input
+}
+
 let set31 = (transitionTable, machineState, reset, input) => {
     transitionTable = {
         0: {
@@ -279,6 +321,7 @@ let set33 = (transitionTable, machineState, reset, input) => {
 export {
     set301,
     set302,
+    set303,
     set31,
     set32,
     set33

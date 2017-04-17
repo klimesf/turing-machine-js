@@ -15,6 +15,7 @@ import populateTransitionTable from './populateTransitionTable'
 import {
     set301,
     set302,
+    set303,
     set31,
     set32,
     set33
@@ -240,6 +241,9 @@ switch (window.location.hash) {
     case "#cv302":
         input = set302(transitionTable, machineState, reset)
         break
+    case "#cv303":
+        input = set303(transitionTable, machineState, reset)
+        break
     case "#cv301":
     default:
         input = set301(transitionTable, machineState, reset)
@@ -254,6 +258,10 @@ document.querySelector("a#cv301").addEventListener("click", (e) => {
 
 document.querySelector("a#cv302").addEventListener("click", (e) => {
     input = set302(transitionTable, machineState, reset, input)
+})
+
+document.querySelector("a#cv303").addEventListener("click", (e) => {
+    input = set303(transitionTable, machineState, reset, input)
 })
 
 document.querySelector("a#cv31").addEventListener("click", (e) => {
