@@ -6,7 +6,7 @@ import {
     BLANK
 } from './consts.js'
 
-let set71 = (transitionTable, machineState, reset, input) => {
+let set301 = (transitionTable, machineState, reset, input) => {
     transitionTable = {
         0: {
             "a": new MachineStep(1, "a", DIR_RIGHT)
@@ -35,7 +35,7 @@ let set71 = (transitionTable, machineState, reset, input) => {
     return input
 }
 
-let set72 = (transitionTable, machineState, reset, input) => {
+let set302 = (transitionTable, machineState, reset, input) => {
     transitionTable = {
         0: {
             "a": new MachineStep(1, BLANK, DIR_RIGHT)
@@ -88,4 +88,4 @@ let set72 = (transitionTable, machineState, reset, input) => {
     return input
 }
 
-export {set71, set72}
+export {set301, set302}

@@ -13,8 +13,8 @@ import MachineStep from './MachineStep'
 import ViewState from './ViewState'
 import populateTransitionTable from './populateTransitionTable'
 import {
-    set71,
-    set72
+    set301,
+    set302
 } from './exercises.js'
 
 var transitionTable = {
@@ -219,23 +219,23 @@ document.querySelector("#add-state").addEventListener("click", (e) => {
 })
 
 switch (window.location.hash) {
-    case "#cv72":
-        input = set72(transitionTable, machineState, reset)
+    case "#cv302":
+        input = set302(transitionTable, machineState, reset)
         break
-    case "#cv71":
+    case "#cv301":
     default:
-        input = set71(transitionTable, machineState, reset)
+        input = set301(transitionTable, machineState, reset)
         // render(new ViewState(DIR_RIGHT, undefined, machineState.tape))
         populateTransitionTable(transitionTable, symbols, machineState)
 }
 
 
-document.querySelector("a#cv71").addEventListener("click", (e) => {
-    input = set71(transitionTable, machineState, reset, input)
+document.querySelector("a#cv301").addEventListener("click", (e) => {
+    input = set301(transitionTable, machineState, reset, input)
 })
 
-document.querySelector("a#cv72").addEventListener("click", (e) => {
-    input = set72(transitionTable, machineState, reset, input)
+document.querySelector("a#cv302").addEventListener("click", (e) => {
+    input = set302(transitionTable, machineState, reset, input)
 })
 
 window.reset = reset
