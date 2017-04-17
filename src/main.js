@@ -46,6 +46,7 @@ var inputSymbols = ["a", "b", "c"]
 var input = window.input || ["a", "a", "b", "b", "c"]
 var states = [0, 1, 2, 3, 4]
 var finalStates = [4]
+var step = 0
 var machineState = new MachineState(
     states, // States
     finalStates, // Final states
@@ -68,6 +69,10 @@ let reset = (input) => {
     let stateEl = document.querySelector('.state')
     stateEl.classList.remove("fail")
     stateEl.textContent = ""
+
+    // Reset & redraw step counter
+    step = 0;
+    document.querySelector('.counter').textContent = step
 
     // Reset machine input for good measure
     document.querySelector('#machine-input').value = input.join("")
@@ -119,6 +124,7 @@ let spacePressed = () => {
         case STATE_RUNNING:
             let viewState = machineState.apply(machineStep)
             render(viewState)
+            document.querySelector('.counter').textContent = ++step
             break;
         default:
             console.err("Unknown machine state")
@@ -153,7 +159,7 @@ document.querySelector("a#space").addEventListener("click", (e) => {
 document.querySelector("#editor > a.banner").addEventListener("click", (e) => {
     let editorPane = document.querySelector("#editor");
     if (editorPane.classList.contains("active")) {
-        editorPane.style.right = "-750px"
+        editorPane.style.right = "-850px"
     } else {
         editorPane.style.right = "0"
     }
