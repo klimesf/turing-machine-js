@@ -12,6 +12,7 @@ import MachineState from './MachineState'
 import MachineStep from './MachineStep'
 import ViewState from './ViewState'
 import populateTransitionTable from './populateTransitionTable'
+import { set71, set72 } from './exercises.js'
 
 var transitionTable = {
     0: {
@@ -62,6 +63,9 @@ let reset = (input) => {
     stateEl.classList.remove("fail")
     stateEl.textContent = ""
 
+    // Reset machine input for good measure
+    document.querySelector('#machine-input').value = input.join("")
+
     // Re-render the simulator
     render(new ViewState(DIR_RIGHT, undefined, machineState.tape, 0), true)
 }
@@ -74,7 +78,9 @@ document.onkeypress = function(e) {
         readyForEvent = false;
         reset(window.input || input)
         // Animation sync
-        setTimeout(() => {readyForEvent = true}, 100)
+        setTimeout(() => {
+            readyForEvent = true
+        }, 100)
         return
     }
     if (e.code === "Space") {
@@ -114,7 +120,9 @@ document.onkeypress = function(e) {
         }
 
         // Animation sync
-        setTimeout(() => {readyForEvent = true}, 100)
+        setTimeout(() => {
+            readyForEvent = true
+        }, 100)
         return
     }
 }
@@ -178,17 +186,36 @@ resetEl.addEventListener("click", (e) => {
     populateTransitionTable(transitionTable, symbols, machineState)
 })
 
-// render(new ViewState(DIR_RIGHT, undefined, machineState.tape))
-populateTransitionTable(transitionTable, symbols, machineState)
-
 document.querySelector("#add-state").addEventListener("click", (e) => {
     e.preventDefault()
-    let newState = states.reduce((max, val) => {return val > max ? val : max}, 0) + 1
+    let newState = states.reduce((max, val) => {
+        return val > max ? val : max
+    }, 0) + 1
     states.push(newState)
     transitionTable[newState] = {}
     machineState.transitionTable = transitionTable
     machineState.finalStates = [newState]
     populateTransitionTable(transitionTable, symbols, machineState)
+})
+
+switch (window.location.hash) {
+    case "#cv72":
+        set72(transitionTable, machineState, reset)
+        break
+    case "#cv71":
+    default:
+        set71(transitionTable, machineState, reset)
+        // render(new ViewState(DIR_RIGHT, undefined, machineState.tape))
+        populateTransitionTable(transitionTable, symbols, machineState)
+}
+
+
+document.querySelector("a#cv71").addEventListener("click", (e) => {
+    set71(transitionTable, machineState, reset)
+})
+
+document.querySelector("a#cv72").addEventListener("click", (e) => {
+    set72(transitionTable, machineState, reset)
 })
 
 window.reset = reset
