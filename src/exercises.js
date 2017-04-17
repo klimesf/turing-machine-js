@@ -190,9 +190,96 @@ let set32 = (transitionTable, machineState, reset, input) => {
     return input
 }
 
+let set33 = (transitionTable, machineState, reset, input) => {
+    transitionTable = {
+        0: {
+            "a": new MachineStep(0, "a", DIR_RIGHT),
+            "b": new MachineStep(0, "b", DIR_RIGHT),
+            "c": new MachineStep(1, "Z", DIR_RIGHT)
+        },
+        1: {
+            "a": new MachineStep(1, "a", DIR_RIGHT),
+            "b": new MachineStep(2, "c", DIR_LEFT),
+            "c": new MachineStep(1, "c", DIR_RIGHT),
+            "B": new MachineStep(3, "B", DIR_LEFT)
+        },
+        2: {
+            "a": new MachineStep(2, "a", DIR_LEFT),
+            "b": new MachineStep(2, "b", DIR_LEFT),
+            "c": new MachineStep(2, "c", DIR_LEFT),
+            "Z": new MachineStep(0, "b", DIR_RIGHT)
+        },
+        3: {
+            "a": new MachineStep(3, "a", DIR_LEFT),
+            "b": new MachineStep(3, "b", DIR_LEFT),
+            "c": new MachineStep(3, "c", DIR_LEFT),
+            "Z": new MachineStep(3, "c", DIR_LEFT),
+            "B": new MachineStep(4, "B", DIR_RIGHT),
+        },
+        4: {
+            "a": new MachineStep(4, "a", DIR_RIGHT),
+            "b": new MachineStep(5, "Y", DIR_RIGHT),
+            "c": new MachineStep(4, "c", DIR_RIGHT)
+        },
+        5: {
+            "a": new MachineStep(6, "b", DIR_LEFT),
+            "b": new MachineStep(5, "b", DIR_RIGHT),
+            "c": new MachineStep(5, "c", DIR_RIGHT),
+            "B": new MachineStep(7, "B", DIR_LEFT)
+        },
+        6: {
+            "a": new MachineStep(6, "a", DIR_LEFT),
+            "b": new MachineStep(6, "b", DIR_LEFT),
+            "c": new MachineStep(6, "c", DIR_LEFT),
+            "Y": new MachineStep(4, "a", DIR_RIGHT)
+        },
+        7: {
+            "a": new MachineStep(7, "a", DIR_LEFT),
+            "b": new MachineStep(7, "b", DIR_LEFT),
+            "c": new MachineStep(7, "c", DIR_LEFT),
+            "Y": new MachineStep(7, "b", DIR_LEFT),
+            "B": new MachineStep(8, "B", DIR_RIGHT)
+        },
+        8: {
+            "a": new MachineStep(8, "a", DIR_RIGHT),
+            "b": new MachineStep(8, "b", DIR_RIGHT),
+            "c": new MachineStep(9, "Z", DIR_RIGHT)
+        },
+        9: {
+            "a": new MachineStep(9, "a", DIR_RIGHT),
+            "b": new MachineStep(10, "c", DIR_LEFT),
+            "c": new MachineStep(9, "c", DIR_RIGHT),
+            "B": new MachineStep(11, "B", DIR_LEFT)
+        },
+        10: {
+            "a": new MachineStep(10, "a", DIR_LEFT),
+            "b": new MachineStep(10, "b", DIR_LEFT),
+            "c": new MachineStep(10, "c", DIR_LEFT),
+            "Z": new MachineStep(8, "b", DIR_RIGHT)
+        },
+        11: {
+            "a": new MachineStep(11, "a", DIR_LEFT),
+            "b": new MachineStep(11, "b", DIR_LEFT),
+            "c": new MachineStep(11, "c", DIR_LEFT),
+            "Z": new MachineStep(11, "c", DIR_LEFT),
+            "B": new MachineStep(12, "B", DIR_RIGHT),
+        },
+        12: {}
+    }
+    machineState.transitionFunction = transitionTable
+    machineState.states = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    machineState.finalStates = [12]
+    document.querySelector(".description").innerHTML = "This Turing Machine realizes function<br/> f(w) = a<sub>k</sub>b<sub>l</sub>c<sub>m</sub>, k = |w|<sub>a</sub>, L = |w|<sub>l</sub>, m = |w|<sub>m</sub>";
+    input = ["a", "c", "b", "a", "c", "a", "b", "c"]
+    reset(input)
+    populateTransitionTable(transitionTable, ["a", "b", "c", "X", "Y", "Z", BLANK], machineState)
+    return input
+}
+
 export {
     set301,
     set302,
     set31,
-    set32
+    set32,
+    set33
 }
