@@ -14,14 +14,14 @@ export default function(viewState, hard = false) {
     currentStateEl.innerHTML = `q<sub>${viewState.newState}</sub>`
 
     // Add first blank if not present
-    if (viewState.tape[0] !== BLANK) {
+    //if (viewState.tape[0] !== BLANK) {
         width += 50
         let blankNode = document.createElement("div")
         blankNode.classList.add("symbol")
         blankNode.classList.add("blank")
         blankNode.textContent = BLANK
         symbolsWrapper.appendChild(blankNode)
-    }
+    //}
 
     viewState.tape.forEach((symbol, i) => {
         let symbolNode = document.createElement("div")
@@ -36,7 +36,7 @@ export default function(viewState, hard = false) {
     // Add last blank if not present
     if (viewState.tape[viewState.tape.length - 1] !== BLANK) {
         width += 50
-        let blankNode = document.createElement("div")
+        blankNode = document.createElement("div")
         blankNode.classList.add("symbol")
         blankNode.classList.add("blank")
         blankNode.textContent = BLANK
