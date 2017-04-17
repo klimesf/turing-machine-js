@@ -318,11 +318,75 @@ let set33 = (transitionTable, machineState, reset, input) => {
     return input
 }
 
+
+let set34 = (transitionTable, machineState, reset, input) => {
+    transitionTable = {
+        0: {
+            "0": new MachineStep(0, "0", DIR_RIGHT),
+            "1": new MachineStep(0, "1", DIR_RIGHT),
+            "B": new MachineStep(1, "S", DIR_LEFT)
+        },
+        1: {
+            "0": new MachineStep(1, "0", DIR_LEFT),
+            "1": new MachineStep(1, "1", DIR_LEFT),
+            "B": new MachineStep(2, "B", DIR_RIGHT)
+        },
+        2: {
+            "0": new MachineStep(3, "B", DIR_RIGHT),
+            "1": new MachineStep(9, "B", DIR_RIGHT),
+        },
+        3: {
+            "0": new MachineStep(3, "0", DIR_RIGHT),
+            "1": new MachineStep(4, "1", DIR_RIGHT)
+        },
+        4: {
+            "0": new MachineStep(5, "X", DIR_RIGHT),
+            "1": new MachineStep(8, "1", DIR_LEFT),
+            "S": new MachineStep(8, "S", DIR_LEFT),
+        },
+        5: {
+            "0": new MachineStep(5, "0", DIR_RIGHT),
+            "1": new MachineStep(5, "1", DIR_RIGHT),
+            "S": new MachineStep(6, "S", DIR_RIGHT)
+        },
+        6: {
+            "0": new MachineStep(6, "0", DIR_RIGHT),
+            "B": new MachineStep(7, "0", DIR_LEFT)
+        },
+        7: {
+            "0": new MachineStep(7, "0", DIR_LEFT),
+            "1": new MachineStep(7, "1", DIR_LEFT),
+            "S": new MachineStep(7, "S", DIR_LEFT),
+            "X": new MachineStep(4, "0", DIR_RIGHT),
+        },
+        8: {
+            "0": new MachineStep(8, "0", DIR_LEFT),
+            "1": new MachineStep(8, "1", DIR_LEFT),
+            "B": new MachineStep(2, "B", DIR_RIGHT),
+        },
+        9: {
+            "0": new MachineStep(9, "B", DIR_RIGHT),
+            "1": new MachineStep(9, "B", DIR_RIGHT),
+            "S": new MachineStep(10, "B", DIR_RIGHT),
+        },
+        10: {}
+    }
+    machineState.transitionFunction = transitionTable
+    machineState.states = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    machineState.finalStates = [10]
+    document.querySelector(".description").innerHTML = "This Turing Machine realizes function<br/> f(m,n) = m*n, number x is represented as 0<sup>x</sup>1";
+    input = ["0", "0", "1", "0", "0", "1"]
+    reset(input)
+    populateTransitionTable(transitionTable, ["0", "1", "X", "S", BLANK], machineState)
+    return input
+}
+
 export {
     set301,
     set302,
     set303,
     set31,
     set32,
-    set33
+    set33,
+    set34
 }

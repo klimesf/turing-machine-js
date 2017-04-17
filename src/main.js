@@ -18,7 +18,8 @@ import {
     set303,
     set31,
     set32,
-    set33
+    set33,
+    set34
 } from './exercises.js'
 
 var transitionTable = {
@@ -238,6 +239,9 @@ switch (window.location.hash) {
     case "#cv33":
         input = set33(transitionTable, machineState, reset)
         break
+    case "#cv34":
+        input = set34(transitionTable, machineState, reset)
+        break
     case "#cv302":
         input = set302(transitionTable, machineState, reset)
         break
@@ -274,6 +278,10 @@ document.querySelector("a#cv32").addEventListener("click", (e) => {
 
 document.querySelector("a#cv33").addEventListener("click", (e) => {
     input = set33(transitionTable, machineState, reset, input)
+})
+
+document.querySelector("a#cv34").addEventListener("click", (e) => {
+    input = set34(transitionTable, machineState, reset, input)
 })
 
 window.reset = reset

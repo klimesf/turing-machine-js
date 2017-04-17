@@ -18,12 +18,16 @@ export default class MachineState {
     }
 
     apply(machineStep) {
-        this.tape[this.head] = machineStep.rewrite
         let added = false
         if (this.head == -1) {
             this.tape.unshift(machineStep.rewrite)
             this.head = 0
             added = true
+        } else if (this.head >= this.tape.length) {
+            this.tape.push(machineStep.rewrite)
+            added = true
+        } else {
+            this.tape[this.head] = machineStep.rewrite
         }
         let oldHead = this.head
         this.head += (machineStep.direction === DIR_LEFT) ? -1 : +1;
