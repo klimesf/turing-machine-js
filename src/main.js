@@ -12,7 +12,10 @@ import MachineState from './MachineState'
 import MachineStep from './MachineStep'
 import ViewState from './ViewState'
 import populateTransitionTable from './populateTransitionTable'
-import { set71, set72 } from './exercises.js'
+import {
+    set71,
+    set72
+} from './exercises.js'
 
 var transitionTable = {
     0: {
@@ -70,62 +73,79 @@ let reset = (input) => {
     render(new ViewState(DIR_RIGHT, undefined, machineState.tape, 0), true)
 }
 
+let rPressed = () => {
+    if (!readyForEvent) {
+        return; // Animation in progress, do nothing
+    }
+    readyForEvent = false;
+    reset(window.input || input)
+    // Animation sync
+    setTimeout(() => {
+        readyForEvent = true
+    }, 100)
+}
+
+let spacePressed = () => {
+    if (!readyForEvent) {
+        return; // Animation in progress, do nothing
+    }
+    if (machineState.running !== STATE_RUNNING) {
+        return;
+    }
+    readyForEvent = false;
+
+    const {
+        machineStep,
+        running
+    } = turingMachine(machineState)
+
+    let stateEl = null
+    switch (running) {
+        case STATE_STOPPED_FAIL:
+            machineState.running = STATE_STOPPED_FAIL
+            stateEl = document.querySelector('.state')
+            stateEl.classList.add("fail")
+            stateEl.textContent = "Machine stopped unsuccessfully"
+            break;
+        case STATE_STOPPED_SUCCESS:
+            machineState.running = STATE_STOPPED_SUCCESS
+            stateEl = document.querySelector('.state')
+            stateEl.classList.add("success")
+            stateEl.textContent = "Machine stopped successfully"
+            break;
+        case STATE_RUNNING:
+            let viewState = machineState.apply(machineStep)
+            render(viewState)
+            break;
+        default:
+            console.err("Unknown machine state")
+    }
+
+    // Animation sync
+    setTimeout(() => {
+        readyForEvent = true
+    }, 100)
+}
+
 document.onkeypress = function(e) {
     if (e.code === "KeyR") {
-        if (!readyForEvent) {
-            return; // Animation in progress, do nothing
-        }
-        readyForEvent = false;
-        reset(window.input || input)
-        // Animation sync
-        setTimeout(() => {
-            readyForEvent = true
-        }, 100)
-        return
+        rPressed()
     }
     if (e.code === "Space") {
-        if (!readyForEvent) {
-            return; // Animation in progress, do nothing
-        }
-        if (machineState.running !== STATE_RUNNING) {
-            return;
-        }
-        readyForEvent = false;
-
-        const {
-            machineStep,
-            running
-        } = turingMachine(machineState)
-
-        let stateEl = null
-        switch (running) {
-            case STATE_STOPPED_FAIL:
-                machineState.running = STATE_STOPPED_FAIL
-                stateEl = document.querySelector('.state')
-                stateEl.classList.add("fail")
-                stateEl.textContent = "Machine stopped unsuccessfully"
-                break;
-            case STATE_STOPPED_SUCCESS:
-                machineState.running = STATE_STOPPED_SUCCESS
-                stateEl = document.querySelector('.state')
-                stateEl.classList.add("success")
-                stateEl.textContent = "Machine stopped successfully"
-                break;
-            case STATE_RUNNING:
-                let viewState = machineState.apply(machineStep)
-                render(viewState)
-                break;
-            default:
-                console.err("Unknown machine state")
-        }
-
-        // Animation sync
-        setTimeout(() => {
-            readyForEvent = true
-        }, 100)
-        return
+        spacePressed()
     }
 }
+
+
+document.querySelector("a#r").addEventListener("click", (e) => {
+    e.preventDefault()
+    rPressed()
+})
+
+document.querySelector("a#space").addEventListener("click", (e) => {
+    e.preventDefault()
+    spacePressed()
+})
 
 document.querySelector("#editor > a.banner").addEventListener("click", (e) => {
     let editorPane = document.querySelector("#editor");

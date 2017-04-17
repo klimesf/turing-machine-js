@@ -21,7 +21,7 @@ let set71 = (transitionTable, machineState, reset) => {
         },
         3: {
             "c": new MachineStep(3, "c", DIR_RIGHT),
-            BLANK: new MachineStep(4, BLANK, DIR_LEFT)
+            "B": new MachineStep(4, BLANK, DIR_LEFT)
         },
         4: {}
     }
