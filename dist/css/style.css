@@ -26,7 +26,7 @@ body {
     margin: 0 auto;
     text-align: center;
     overflow: hidden;
-    transition: all 0.1s ease;
+    transition: transform 0.1s ease;
     transform: translateX(-1px);
     /* initial position */
 }
