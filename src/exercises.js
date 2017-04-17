@@ -137,8 +137,62 @@ let set31 = (transitionTable, machineState, reset, input) => {
     return input
 }
 
+let set32 = (transitionTable, machineState, reset, input) => {
+    transitionTable = {
+        0: {
+            "0": new MachineStep(1, "a", DIR_RIGHT),
+            "1": new MachineStep(1, "b", DIR_RIGHT),
+            "X": new MachineStep(4, "X", DIR_RIGHT),
+            "Y": new MachineStep(4, "Y", DIR_RIGHT),
+            "B": new MachineStep(6, "B", DIR_RIGHT)
+        },
+        1: {
+            "0": new MachineStep(1, "0", DIR_RIGHT),
+            "1": new MachineStep(1, "1", DIR_RIGHT),
+            "X": new MachineStep(2, "X", DIR_LEFT),
+            "Y": new MachineStep(2, "Y", DIR_LEFT),
+            "B": new MachineStep(2, "B", DIR_LEFT)
+        },
+        2: {
+            "0": new MachineStep(3, "X", DIR_LEFT),
+            "1": new MachineStep(3, "Y", DIR_LEFT),
+            "a": new MachineStep(4, "X", DIR_RIGHT),
+            "b": new MachineStep(4, "Y", DIR_RIGHT),
+        },
+        3: {
+            "0": new MachineStep(3, "0", DIR_LEFT),
+            "1": new MachineStep(3, "1", DIR_LEFT),
+            "a": new MachineStep(0, "0", DIR_RIGHT),
+            "b": new MachineStep(0, "1", DIR_RIGHT),
+        },
+        4: {
+            "X": new MachineStep(4, "X", DIR_RIGHT),
+            "Y": new MachineStep(4, "X", DIR_RIGHT),
+            "B": new MachineStep(5, "B", DIR_LEFT)
+        },
+        5: {
+            "0": new MachineStep(6, "0", DIR_LEFT),
+            "1": new MachineStep(6, "1", DIR_LEFT),
+            "a": new MachineStep(6, "0", DIR_LEFT),
+            "b": new MachineStep(6, "1", DIR_LEFT),
+            "X": new MachineStep(5, "B", DIR_LEFT),
+            "Y": new MachineStep(5, "B", DIR_LEFT)
+        },
+        6: {}
+    }
+    machineState.transitionFunction = transitionTable
+    machineState.states = [0, 1, 2, 3, 4, 5, 6]
+    machineState.finalStates = [6]
+    document.querySelector(".description").innerHTML = "This Turing Machine realizes function<br/> f(a<sub>1</sub>a<sub>1</sub>..a<sub>n</sub>) = a<sub>1</sub>a<sub>1</sub>..a<sub>k</sub>, k = floor(n/2)";
+    input = ["0", "1", "1", "0", "1"]
+    reset(input)
+    populateTransitionTable(transitionTable, ["0", "1", "a", "b", "X", "Y", BLANK], machineState)
+    return input
+}
+
 export {
     set301,
     set302,
-    set31
+    set31,
+    set32
 }

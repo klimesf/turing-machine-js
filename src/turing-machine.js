@@ -1,13 +1,14 @@
 import {
     STATE_RUNNING,
     STATE_STOPPED_FAIL,
-    STATE_STOPPED_SUCCESS
+    STATE_STOPPED_SUCCESS,
+    BLANK
 } from './consts'
 import MachineStep from './MachineStep'
 
 export default function(machineState) {
     let state = machineState.state
-    let currentSymbol = 'B'
+    let currentSymbol = BLANK
     if (machineState.head >= 0 && machineState.head < machineState.tape.length) {
         currentSymbol = machineState.tape[machineState.head]
     }

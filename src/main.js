@@ -15,7 +15,8 @@ import populateTransitionTable from './populateTransitionTable'
 import {
     set301,
     set302,
-    set31
+    set31,
+    set32
 } from './exercises.js'
 
 var transitionTable = {
@@ -223,6 +224,9 @@ switch (window.location.hash) {
     case "#cv31":
         input = set31(transitionTable, machineState, reset)
         break
+    case "#cv32":
+        input = set32(transitionTable, machineState, reset)
+        break
     case "#cv302":
         input = set302(transitionTable, machineState, reset)
         break
@@ -244,6 +248,10 @@ document.querySelector("a#cv302").addEventListener("click", (e) => {
 
 document.querySelector("a#cv31").addEventListener("click", (e) => {
     input = set31(transitionTable, machineState, reset, input)
+})
+
+document.querySelector("a#cv32").addEventListener("click", (e) => {
+    input = set32(transitionTable, machineState, reset, input)
 })
 
 window.reset = reset
