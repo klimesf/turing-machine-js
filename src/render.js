@@ -5,6 +5,10 @@ import {
 } from './consts.js'
 import ViewState from './ViewState.js'
 
+/**
+ * Renders the Turing Machine and all its components, i.e., the tape
+ * and the descriptions of current TM state.
+ */
 export default function(viewState, hard = false) {
     let symbolsWrapper = document.querySelector(".symbols-wrapper")
     symbolsWrapper.innerHTML = ""
@@ -13,15 +17,17 @@ export default function(viewState, hard = false) {
     let currentStateEl = document.querySelector(".current-state")
     currentStateEl.innerHTML = `q<sub>${viewState.newState}</sub>`
 
+    // Propagate current state to SVG cursor
+    let svgTextEl = document.querySelector("svg > text")
+    svgTextEl.innerHTML = `q<tspan dy="+5">${viewState.newState}</tspan>`
+
     // Add first blank if not present
-    //if (viewState.tape[0] !== BLANK) {
     width += 50
     let blankNode = document.createElement("div")
     blankNode.classList.add("symbol")
     blankNode.classList.add("blank")
     blankNode.textContent = BLANK
     symbolsWrapper.appendChild(blankNode)
-    //}
 
     viewState.tape.forEach((symbol, i) => {
         let symbolNode = document.createElement("div")
@@ -34,14 +40,12 @@ export default function(viewState, hard = false) {
     })
 
     // Add last blank if not present
-    // if (viewState.tape[viewState.tape.length - 1] !== BLANK) {
-        width += 50
-        blankNode = document.createElement("div")
-        blankNode.classList.add("symbol")
-        blankNode.classList.add("blank")
-        blankNode.textContent = BLANK
-        symbolsWrapper.appendChild(blankNode)
-    // }
+    width += 50
+    blankNode = document.createElement("div")
+    blankNode.classList.add("symbol")
+    blankNode.classList.add("blank")
+    blankNode.textContent = BLANK
+    symbolsWrapper.appendChild(blankNode)
 
     symbolsWrapper.style.width = width + "px"
     let translateX = parseInt(getComputedStyle(symbolsWrapper).transform.split(',')[4])

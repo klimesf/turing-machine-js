@@ -65,7 +65,7 @@ The structure of the folder is the following:
 - [x] [Validita -	Validní použití HTML5 doctype](https://github.com/klimesf/turing-machine-js/blob/master/dist/index.html#L1) (1)
 - [x] Validita - funkcionalita v nejnovějších prohlížečích [W3C HTML](https://validator.w3.org/nu/?doc=https%3A%2F%2Fklimesf.github.io%2Fturing-machine-simulator%2F) [W3C CSS](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fklimesf.github.io%2Fturing-machine-simulator%2Fcss%2Fstyle.css&profile=css3&usermedium=all&warning=1&vextwarning=&lang=en) (2)
 - [x] [Semantické značky	"správné použití sémantických značek (section, article, nav, aside, ...)"]((https://github.com/klimesf/turing-machine-js/blob/master/dist/index.html#L11)) (1)
-- [ ] Grafika - SVG / Canvas (2)
+- [x] [Grafika - SVG / Canvas](https://github.com/klimesf/turing-machine-js/blob/master/src/main.js#L27) (2)
 - [x] [Média - Audio/Video](https://github.com/klimesf/turing-machine-js/blob/master/src/main.js#L262) - to display, paste "tourette" into the TM Input and click "Reset" (1)
 - [x] [Formulářové prvky	Validace, typy, placeholder, autofocus](https://github.com/klimesf/turing-machine-js/blob/master/dist/index.html#L41) (2)
 - [x] [Offline aplikace	"využití možnosti fungování stránky bez Internetového připojení (viz sekce Javascript)"](https://github.com/klimesf/turing-machine-js/blob/master/dist/index.html#L2) (1)
@@ -78,13 +78,13 @@ The structure of the folder is the following:
 - [x] [Media queries	stránky fungují i na mobilních zařízeních i jiných (tedy nerozpadají se)](https://github.com/klimesf/turing-machine-js/blob/master/dist/css/style.css#L111) (2)
 
 ### Javascript / 12
-- [ ] OOP přístup	prototypová dědičnost, její využití, jmenné prostory (!2)
+- [x] [OOP přístup	prototypová dědičnost, její využití, jmenné prostory](https://github.com/klimesf/turing-machine-js/blob/master/src/MachineState.js) (!2)
 - [x] [Použití JS frameworku či knihovny	použití a pochopení frameworku či knihovny JAK, jQuery, ..](https://github.com/klimesf/turing-machine-js/blob/master/webpack.config.js) - I used Yarn and Webpack (1)
-- [ ] Použití pokročilých JS API (File API, Geolocation, Drag & Drop, LocalStorage, Sockety, ...) (3)
-- [ ] Funkční historie	posun tlačítky zpět/vpřed prohlížeče - pokud to vyplývá z funkcionatilty (History API) (2)
+- [ ] Použití pokročilých JS API (File API, Geolocation, Drag & Drop, LocalStorage, Sockety, ...) - I used LocalStorage to store TM transiton table (the only reasonable usage of advanced APIs) (!3)
+- [ ] Funkční historie posun tlačítky zpět/vpřed prohlížeče - pokud to vyplývá z funkcionatilty (History API) (2)
 - [x] [Ovládání medií	použití Média API (video, zvuk), přehrávání z JS](https://github.com/klimesf/turing-machine-js/blob/master/src/main.js#L136) (1)
 - [x] [Offline aplikace	využití JS API pro zjišťování stavu](https://github.com/klimesf/turing-machine-js/blob/master/src/main.js#L385) (1)
-- [ ] JS práce se SVG	události, tvorba, úpravy (2)
+- [x] [JS práce se SVG	události, tvorba, úpravy](https://github.com/klimesf/turing-machine-js/blob/master/src/render.js#L21) (2)
 
 ### Ostatní / 5
 - [x] Kompletnost řešení (3)
