@@ -83,7 +83,7 @@ The structure of the folder is the following:
 - [ ] Použití pokročilých JS API	využití pokročilých API (File API, Geolocation, Drag & Drop, LocalStorage, Sockety, ...) (3)
 - [ ] Funkční historie	posun tlačítky zpět/vpřed prohlížeče - pokud to vyplývá z funkcionatilty (History API) (2)
 - [x] [Ovládání medií	použití Média API (video, zvuk), přehrávání z JS](https://github.com/klimesf/turing-machine-js/blob/master/src/main.js#L136) (1)
-- [ ] Offline aplikace	využití JS API pro zjišťování stavu (1)
+- [x] [Offline aplikace	využití JS API pro zjišťování stavu](https://github.com/klimesf/turing-machine-js/blob/master/src/main.js#L295) (1)
 - [ ] JS práce se SVG	události, tvorba, úpravy (2)
 
 ### Ostatní / 5

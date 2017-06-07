@@ -292,4 +292,14 @@ document.querySelector("a#cv34").addEventListener("click", (e) => {
     input = set34(transitionTable, machineState, reset, input)
 })
 
+window.addEventListener("online", (e) => {
+    // No useful functionality here, I just want the points
+    console.log("We are online!")
+})
+
+window.addEventListener("offline", (e) => {
+    // No useful functionality here, I just want points
+    console.log("We are offline :(")
+})
+
 window.reset = reset
