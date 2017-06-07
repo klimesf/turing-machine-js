@@ -63,10 +63,10 @@ However, feel free to report any bug or to suggest any improvement! Thank you :)
 - [ ] Offline aplikace	"využití možnosti fungování stránky bez Internetového připojení (viz sekce Javascript)"			1
 
 ### CSS / 8
-- [ ] Pokročilé selektory	použití pokročilých pseudotříd a kombinátorů		X	1
-- [ ] Vendor prefixy				1
-- [x] CSS3 transformace 2D/3D				2
-- [x] CSS3 transitions/animations			X	2
+- [ ] Pokročilé selektory	použití pokročilých pseudotříd a kombinátorů (1)
+- [x] [Vendor prefixy](https://github.com/klimesf/turing-machine-js/blob/master/dist/css/style.css#L31) (1)
+- [x] [CSS3 transformace 2D/3D](https://github.com/klimesf/turing-machine-js/blob/master/dist/css/style.css#L31) (2)
+- [x] [CSS3 transitions/animations](https://github.com/klimesf/turing-machine-js/blob/master/dist/css/style.css#L31) (2)
 - [ ] Media queries	stránky fungují i na mobilních zařízeních i jiných (tedy nerozpadají se)			2
 
 ### Javascript / 12
