@@ -66,7 +66,7 @@ The structure of the folder is the following:
 - [x] Validita - funkcionalita v nejnovějších prohlížečích [W3C HTML](https://validator.w3.org/nu/?doc=https%3A%2F%2Fklimesf.github.io%2Fturing-machine-simulator%2F) [W3C CSS](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fklimesf.github.io%2Fturing-machine-simulator%2Fcss%2Fstyle.css&profile=css3&usermedium=all&warning=1&vextwarning=&lang=en) (2)
 - [x] [Semantické značky	"správné použití sémantických značek (section, article, nav, aside, ...)"]((https://github.com/klimesf/turing-machine-js/blob/master/dist/index.html#L11)) (1)
 - [ ] Grafika - SVG / Canvas (2)
-- [ ] Média - Audio/Video (1)
+- [x] [Média - Audio/Video](https://github.com/klimesf/turing-machine-js/blob/master/src/main.js#L262) - to display, paste "tourette" into the TM Input and click "Reset" (1)
 - [ ] Formulářové prvky	Validace, typy, placeholder, autofocus (2)
 - [x] [Offline aplikace	"využití možnosti fungování stránky bez Internetového připojení (viz sekce Javascript)"](https://github.com/klimesf/turing-machine-js/blob/master/dist/index.html#L2) (1)
 
@@ -83,7 +83,7 @@ The structure of the folder is the following:
 - [ ] Použití pokročilých JS API (File API, Geolocation, Drag & Drop, LocalStorage, Sockety, ...) (3)
 - [ ] Funkční historie	posun tlačítky zpět/vpřed prohlížeče - pokud to vyplývá z funkcionatilty (History API) (2)
 - [x] [Ovládání medií	použití Média API (video, zvuk), přehrávání z JS](https://github.com/klimesf/turing-machine-js/blob/master/src/main.js#L136) (1)
-- [x] [Offline aplikace	využití JS API pro zjišťování stavu](https://github.com/klimesf/turing-machine-js/blob/master/src/main.js#L295) (1)
+- [x] [Offline aplikace	využití JS API pro zjišťování stavu](https://github.com/klimesf/turing-machine-js/blob/master/src/main.js#L385) (1)
 - [ ] JS práce se SVG	události, tvorba, úpravy (2)
 
 ### Ostatní / 5

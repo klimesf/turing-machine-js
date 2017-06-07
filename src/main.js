@@ -203,6 +203,16 @@ resetEl.addEventListener("click", (e) => {
                 "k": new MachineStep(4, "t", DIR_RIGHT)
             }
         }
+
+        let headerEl = document.querySelector("#description")
+        let audioEl = document.createElement("audio")
+        audioEl.setAttribute("controls", "controls")
+        let sourceEl = document.createElement("source")
+        sourceEl.src = "sound/rick.mp3"
+        sourceEl.type = "audio/mpeg"
+        audioEl.appendChild(sourceEl)
+        headerEl.appendChild(audioEl)
+
         machineState = new MachineState(
             states, // States
             finalStates, // Final states
