@@ -2,7 +2,8 @@ import MachineStep from './MachineStep'
 
 export default function(transitionTable, symbols, machineState) {
     let states = []
-    let transitionTableHeadRowEl = document.querySelector(".transition-table > thead > tr")
+    let transitionTableHeadEl = document.querySelector(".transition-table > thead")
+    let transitionTableHeadRowEl = document.createElement("tr")
     transitionTableHeadRowEl.innerHTML = ""
     for (var state in transitionTable) {
         if (!transitionTable.hasOwnProperty(state)) {
@@ -11,6 +12,7 @@ export default function(transitionTable, symbols, machineState) {
         states.push(state)
     }
     states.pop() // Dont display final state
+    transitionTableHeadEl.appendChild(transitionTableHeadRowEl)
 
     // Top left corner of table
     let headerCol = document.createElement("th")

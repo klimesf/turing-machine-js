@@ -21,13 +21,16 @@ body {
 
 #tape>.symbols-wrapper {
     width: 300px;
-    /* TODO: set to width of the initial number of symbols  */
     overflow: hidden;
     margin: 0 auto;
     text-align: center;
     overflow: hidden;
+    -webkit-transition: -webkit-transform 0.1s ease;
+    transition: -webkit-transform 0.1s ease;
     transition: transform 0.1s ease;
-    transform: translateX(-1px);
+    transition: transform 0.1s ease, -webkit-transform 0.1s ease;
+    -webkit-transform: translateX(-1px);
+            transform: translateX(-1px);
     /* initial position */
 }
 
@@ -35,7 +38,8 @@ body {
     width: 50px;
     height: 50px;
     float: left;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     border-left: 1px solid gray;
     line-height: 50px;
     text-align: center;
@@ -110,6 +114,7 @@ body {
     background-color: #222;
     color: white;
     z-index: 2;
+    -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
     overflow: scroll;
 }
@@ -142,13 +147,15 @@ body {
 #editor>a.banner>span {
     text-decoration: none;
     display: block;
-    transform: rotateZ(-90deg);
+    -webkit-transform: rotateZ(-90deg);
+            transform: rotateZ(-90deg);
+    -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
 }
 
 #editor>.transition-table-wrapper {
     max-width: 100%;
-    padding: 0 auto;
+    padding: 0;
     margin: 100px 0 0;
     text-align: center;
 }
@@ -205,6 +212,7 @@ body {
 #add-state {
     color: white;
     text-decoration: none;
+    -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease;
 }
 

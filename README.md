@@ -47,3 +47,37 @@ so I advise you not to use it)
 
 This is a semestral project, so I won't accept your Pull Request until June 2017.
 However, feel free to report any bug or to suggest any improvement! Thank you :)
+
+## Semestral work
+
+### General
+- [x] cíl projektu, postup, popis funkčnosti, komentáře ve zdrojovém kódu		X	1
+
+### HTML 5 / 10
+- [x] Validita	Validní použití HTML5 doctype		X	1
+- [ ] Validita	"Fungující v moderních prohlíčečích v posledních vývojových verzích  (Chrome, Firefox, Edge, Opera)"			2
+- [ ] Semantické značky	"správné použití sémantických značek (section, article, nav, aside, ...)"		X	1
+- [ ] Grafika - SVG / Canvas				2
+- [ ] Média - Audio/Video				1
+- [ ] Formulářové prvky	Validace, typy, placeholder, autofocus			2
+- [ ] Offline aplikace	"využití možnosti fungování stránky bez Internetového připojení (viz sekce Javascript)"			1
+
+### CSS / 8
+- [ ] Pokročilé selektory	použití pokročilých pseudotříd a kombinátorů		X	1
+- [ ] Vendor prefixy				1
+- [x] CSS3 transformace 2D/3D				2
+- [x] CSS3 transitions/animations			X	2
+- [ ] Media queries	stránky fungují i na mobilních zařízeních i jiných (tedy nerozpadají se)			2
+
+### Javascript / 12
+- [ ] OOP přístup	prototypová dědičnost, její využití, jmenné prostory		X	2
+- [ ] Použití JS frameworku či knihovny	použití a pochopení frameworku či knihovny JAK, jQuery, ..			1
+- [ ] Použití pokročilých JS API	využití pokročilých API (File API, Geolocation, Drag & Drop, LocalStorage, Sockety, ...)		X	3
+- [ ] Funkční historie	posun tlačítky zpět/vpřed prohlížeče - pokud to vyplývá z funkcionatilty (History API)			2
+- [ ] Ovládání medií	použití Média API (video, zvuk), přehrávání z JS			1
+- [ ] Offline aplikace	využití JS API pro zjišťování stavu			1
+- [ ] JS práce se SVG	události, tvorba, úpravy			2
+
+### Ostatní / 5
+- [x] Kompletnost řešení				3
+- [x] Estetické zpracování				2
