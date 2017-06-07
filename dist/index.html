@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <p id="description">
+    <header id="description">
         <span class="description">This Turing Machine accepts <br/> L = {w | w = a<sup>i</sup>b<sup>j</sup>c<sup>k</sup>; i,j,k > 0}</span><br/>
         Current state: <span class="current-state">q<sub>0</sub></span><br/>
         Step: <span class="counter">0</span>
@@ -21,15 +21,12 @@
         <a id="cv32" href="#cv32" class="current">32</a>
         <a id="cv33" href="#cv33" class="current">33</a>
         <a id="cv34" href="#cv34" class="current">34</a>
-    </p>
-    <div id="tape">
+    </header>
+    <section id="tape">
         <div class="symbols-wrapper"></div>
         <div id="cursor"></div>
-        <p id="hint">
-            Press <a id="space" href="#">"Space"</a> to move to the next state<br/>or <a id="r" href="#">"R"</a> to reset.
-        </p>
-    </div>
-    <div id="editor">
+    </section>
+    <aside id="editor">
         <div class="transition-table-wrapper">
             <h2>Transition table</h2>
             <table class="transition-table">
@@ -47,7 +44,10 @@
             </div>
         </div>
         <a href="#" class="banner"><span>Click&nbsp;me!</span></a>
-    </div>
+    </aside>
+    <footer id="hint">
+        Press <a id="space" href="#">"Space"</a> to move to the next state<br/>or <a id="r" href="#">"R"</a> to reset.
+    </footer>
     <script src="js/script.js" type="application/javascript"></script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

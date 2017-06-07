@@ -106,6 +106,7 @@ body {
     position: fixed;
     bottom: 15px;
     padding: 10px;
+    text-align: center;
 }
 
 @media (min-width: 500px) {
@@ -117,7 +118,7 @@ body {
 }
 
 @media (max-width: 899px) {
-    div#editor {
+    #editor {
         display: none;
     }
 }
