@@ -67,7 +67,7 @@ The structure of the folder is the following:
 - [x] [Semantické značky	"správné použití sémantických značek (section, article, nav, aside, ...)"]((https://github.com/klimesf/turing-machine-js/blob/master/dist/index.html#L11)) (1)
 - [ ] Grafika - SVG / Canvas (2)
 - [x] [Média - Audio/Video](https://github.com/klimesf/turing-machine-js/blob/master/src/main.js#L262) - to display, paste "tourette" into the TM Input and click "Reset" (1)
-- [ ] Formulářové prvky	Validace, typy, placeholder, autofocus (2)
+- [x] [Formulářové prvky	Validace, typy, placeholder, autofocus](https://github.com/klimesf/turing-machine-js/blob/master/dist/index.html#L41) (2)
 - [x] [Offline aplikace	"využití možnosti fungování stránky bez Internetového připojení (viz sekce Javascript)"](https://github.com/klimesf/turing-machine-js/blob/master/dist/index.html#L2) (1)
 
 ### CSS / 8
@@ -78,7 +78,7 @@ The structure of the folder is the following:
 - [x] [Media queries	stránky fungují i na mobilních zařízeních i jiných (tedy nerozpadají se)](https://github.com/klimesf/turing-machine-js/blob/master/dist/css/style.css#L111) (2)
 
 ### Javascript / 12
-- [ ] OOP přístup	prototypová dědičnost, její využití, jmenné prostory		X	2
+- [ ] OOP přístup	prototypová dědičnost, její využití, jmenné prostory (!2)
 - [x] [Použití JS frameworku či knihovny	použití a pochopení frameworku či knihovny JAK, jQuery, ..](https://github.com/klimesf/turing-machine-js/blob/master/webpack.config.js) - I used Yarn and Webpack (1)
 - [ ] Použití pokročilých JS API (File API, Geolocation, Drag & Drop, LocalStorage, Sockety, ...) (3)
 - [ ] Funkční historie	posun tlačítky zpět/vpřed prohlížeče - pokud to vyplývá z funkcionatilty (History API) (2)
