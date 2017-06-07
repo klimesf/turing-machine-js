@@ -61,6 +61,9 @@ var machineState = new MachineState(
 let readyForEvent = true;
 var muted = false;
 
+/**
+ * Resets the whole machine to the initial state.
+ */
 let reset = (input) => {
     // Reset machine state
     machineState.head = 0
@@ -84,6 +87,9 @@ let reset = (input) => {
     render(new ViewState(DIR_RIGHT, undefined, machineState.tape, 0), true)
 }
 
+/**
+ * Handler for "r" keypress - resets the machine.
+ */
 let rPressed = () => {
     if (!readyForEvent) {
         return; // Animation in progress, do nothing
@@ -96,6 +102,9 @@ let rPressed = () => {
     }, 100)
 }
 
+/**
+ * Handler for "space" keypress, mves the machine to the next state.
+ */
 let spacePressed = () => {
     if (!readyForEvent) {
         return; // Animation in progress, do nothing
@@ -146,6 +155,9 @@ let spacePressed = () => {
     }, 100)
 }
 
+/**
+ * Kaypress handling.
+ */
 document.onkeypress = function(e) {
     if (e.code === "KeyR") {
         rPressed()
@@ -154,7 +166,6 @@ document.onkeypress = function(e) {
         spacePressed()
     }
 }
-
 
 document.querySelector("a#r").addEventListener("click", (e) => {
     e.preventDefault()
@@ -166,6 +177,9 @@ document.querySelector("a#space").addEventListener("click", (e) => {
     spacePressed()
 })
 
+/**
+ * Editor toggling.
+ */
 document.querySelector("#editor > a.banner").addEventListener("click", (e) => {
     let editorPane = document.querySelector("#editor");
     if (editorPane.classList.contains("active")) {
@@ -176,8 +190,11 @@ document.querySelector("#editor > a.banner").addEventListener("click", (e) => {
     editorPane.classList.toggle("active")
 });
 
+// Machine input init
 let machineInputEl = document.querySelector("#machine-input")
 machineInputEl.value = input.join("")
+
+// --- Below are event listeners of hrefs
 
 let resetEl = document.querySelector("#reset")
 resetEl.addEventListener("click", (e) => {
@@ -247,6 +264,7 @@ document.querySelector("#add-state").addEventListener("click", (e) => {
     populateTransitionTable(transitionTable, symbols, machineState)
 })
 
+// Selecting current TM based on window location hash
 switch (window.location.hash) {
     case "#cv31":
         input = set31(transitionTable, machineState, reset)
@@ -272,7 +290,6 @@ switch (window.location.hash) {
         // render(new ViewState(DIR_RIGHT, undefined, machineState.tape))
         populateTransitionTable(transitionTable, symbols, machineState)
 }
-
 
 document.querySelector("a#cv301").addEventListener("click", (e) => {
     input = set301(transitionTable, machineState, reset, input)
@@ -300,6 +317,14 @@ document.querySelector("a#cv33").addEventListener("click", (e) => {
 
 document.querySelector("a#cv34").addEventListener("click", (e) => {
     input = set34(transitionTable, machineState, reset, input)
+})
+
+document.querySelector("a#save-machine-state").addEventListener("click", (e) => {
+
+})
+
+document.querySelector("a#load-machine-state").addEventListener("click", (e) => {
+
 })
 
 window.addEventListener("online", (e) => {

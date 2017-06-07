@@ -1,3 +1,7 @@
+/**
+ * Represents current state of the Turing Machine Simulator view, i.e., the
+ * tape and the TM state description.
+ */
 export default class ViewState {
 
     constructor(direction, highlight, tape, newState, added = false) {

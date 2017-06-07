@@ -1,5 +1,9 @@
 import MachineStep from './MachineStep'
 
+
+/**
+ * Populates the transition table in editor with current Turing Machine description.
+ */
 export default function(transitionTable, symbols, machineState) {
     let states = []
     let transitionTableHeadEl = document.querySelector(".transition-table > thead")

@@ -6,6 +6,11 @@ import {
     BLANK
 } from './consts.js'
 
+
+/*
+ * This file contains different Turing Machines based on exercises from B4M36TAL class.
+ */
+
 let set301 = (transitionTable, machineState, reset, input) => {
     transitionTable = {
         0: {

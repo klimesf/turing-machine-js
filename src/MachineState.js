@@ -4,6 +4,10 @@ import {
 } from './consts'
 import ViewState from './ViewState'
 
+
+/**
+ * Represents a MachineState in given point in time.
+ */
 export default class MachineState {
 
     constructor(states, finalStates, head, state, transitionFunction, tape) {
@@ -17,6 +21,9 @@ export default class MachineState {
         this.apply = this.apply.bind(this)
     }
 
+    /**
+     * Applies machine step to the state.
+     */
     apply(machineStep) {
         let added = false
         if (this.head == -1) {

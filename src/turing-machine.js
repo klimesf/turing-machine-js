@@ -6,6 +6,9 @@ import {
 } from './consts'
 import MachineStep from './MachineStep'
 
+/**
+ * Handles logic of advancing the turing machine to the next step.
+ */
 export default function(machineState) {
     let state = machineState.state
     let currentSymbol = BLANK

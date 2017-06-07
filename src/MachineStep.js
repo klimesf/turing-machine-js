@@ -1,3 +1,6 @@
+/**
+ * Represents a single machine step.
+ */
 export default class MachineStep {
 
     constructor(nextState, rewrite, direction) {
