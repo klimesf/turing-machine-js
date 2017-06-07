@@ -77,10 +77,16 @@ body {
 #description {
     position: fixed;
     top: 15px;
-    left: 50%;
-    width: 500px;
-    margin-left: -250px;
+    padding: 10px;
     text-align: center;
+}
+
+@media (min-width: 500px) {
+    #description {
+        left: 50%;
+        width: 500px;
+        margin-left: -250px;
+    }
 }
 
 #description>.state {
@@ -99,9 +105,21 @@ body {
 #hint {
     position: fixed;
     bottom: 15px;
-    left: 50%;
-    width: 500px;
-    margin-left: -250px;
+    padding: 10px;
+}
+
+@media (min-width: 500px) {
+    #hint {
+        left: 50%;
+        width: 500px;
+        margin-left: -250px;
+    }
+}
+
+@media (max-width: 899px) {
+    div#editor {
+        display: none;
+    }
 }
 
 #editor {
