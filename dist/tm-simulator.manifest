@@ -1,0 +1,6 @@
+CACHE MANIFEST
+
+# Cache everything, this app can work fully offline
+index.html
+css/style.css
+js/script.js
