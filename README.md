@@ -62,8 +62,8 @@ The structure of the folder is the following:
 - [x] cíl projektu, postup, popis funkčnosti, komentáře ve zdrojovém kódu		X	1
 
 ### HTML 5 / 10
-- [x] [Validita	Validní použití HTML5 doctype](https://github.com/klimesf/turing-machine-js/blob/master/dist/index.html#L1) (1)
-- [ ] Validita	"Fungující v moderních prohlíčečích v posledních vývojových verzích  (Chrome, Firefox, Edge, Opera)" (2)
+- [x] [Validita -	Validní použití HTML5 doctype](https://github.com/klimesf/turing-machine-js/blob/master/dist/index.html#L1) (1)
+- [x] Validita - funkcionalita v nejnovějších prohlížečích [W3C HTML](https://validator.w3.org/nu/?doc=https%3A%2F%2Fklimesf.github.io%2Fturing-machine-simulator%2F) [W3C CSS](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fklimesf.github.io%2Fturing-machine-simulator%2Fcss%2Fstyle.css&profile=css3&usermedium=all&warning=1&vextwarning=&lang=en) (2)
 - [ ] Semantické značky	"správné použití sémantických značek (section, article, nav, aside, ...)" (1)
 - [ ] Grafika - SVG / Canvas (2)
 - [ ] Média - Audio/Video (1)
