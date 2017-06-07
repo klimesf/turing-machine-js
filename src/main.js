@@ -59,6 +59,7 @@ var machineState = new MachineState(
 )
 
 let readyForEvent = true;
+var muted = false;
 
 let reset = (input) => {
     // Reset machine state
@@ -130,6 +131,13 @@ let spacePressed = () => {
             break;
         default:
             console.err("Unknown machine state")
+    }
+
+    // Play Audio
+    if (!muted) {
+      let a = new Audio();
+      a.src = "sound/tick.mp3";
+      a.play();
     }
 
     // Animation sync

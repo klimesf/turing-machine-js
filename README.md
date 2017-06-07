@@ -82,7 +82,7 @@ The structure of the folder is the following:
 - [x] [Použití JS frameworku či knihovny	použití a pochopení frameworku či knihovny JAK, jQuery, ..](https://github.com/klimesf/turing-machine-js/blob/master/webpack.config.js) - I used Yarn and Webpack (1)
 - [ ] Použití pokročilých JS API	využití pokročilých API (File API, Geolocation, Drag & Drop, LocalStorage, Sockety, ...) (3)
 - [ ] Funkční historie	posun tlačítky zpět/vpřed prohlížeče - pokud to vyplývá z funkcionatilty (History API) (2)
-- [ ] Ovládání medií	použití Média API (video, zvuk), přehrávání z JS (1)
+- [x] [Ovládání medií	použití Média API (video, zvuk), přehrávání z JS](https://github.com/klimesf/turing-machine-js/blob/master/src/main.js#L136) (1)
 - [ ] Offline aplikace	využití JS API pro zjišťování stavu (1)
 - [ ] JS práce se SVG	události, tvorba, úpravy (2)
 
