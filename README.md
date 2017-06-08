@@ -19,7 +19,10 @@ the right.
 If you press "Space", the machine executes a single iteration based on
 the value in the transition table. On the top of the screen, you can see
 the current state the machine is in. This can help you to navigate trough
-the transition table of your TM.
+the transition table of your TM. The simulator makes a sound when advancing
+to the next state. You can mute the sound by pressing "M". The browser will
+try to remember that, so that you don't have to mute the sounds on your next
+page load of the simulator.
 
 By pressing "R", you reset the TM to its initial state.
 
@@ -80,10 +83,10 @@ The structure of the folder is the following:
 ### Javascript / 12
 - [x] [OOP přístup	prototypová dědičnost, její využití, jmenné prostory](https://github.com/klimesf/turing-machine-js/blob/master/src/MachineState.js) (!2)
 - [x] [Použití JS frameworku či knihovny	použití a pochopení frameworku či knihovny JAK, jQuery, ..](https://github.com/klimesf/turing-machine-js/blob/master/webpack.config.js) - I used Yarn and Webpack (1)
-- [ ] Použití pokročilých JS API (File API, Geolocation, Drag & Drop, LocalStorage, Sockety, ...) - I used LocalStorage to store TM transiton table (the only reasonable usage of advanced APIs) (!3)
+- [x] [Použití pokročilých JS API (File API, Geolocation, Drag & Drop, LocalStorage, Sockety, ...)](https://github.com/klimesf/turing-machine-js/blob/master/src/main.js#L65) - I used LocalStorage to store info about sound mute toggle (!3)
 - [ ] Funkční historie posun tlačítky zpět/vpřed prohlížeče - pokud to vyplývá z funkcionatilty (History API) (2)
-- [x] [Ovládání medií	použití Média API (video, zvuk), přehrávání z JS](https://github.com/klimesf/turing-machine-js/blob/master/src/main.js#L136) (1)
-- [x] [Offline aplikace	využití JS API pro zjišťování stavu](https://github.com/klimesf/turing-machine-js/blob/master/src/main.js#L385) (1)
+- [x] [Ovládání medií	použití Média API (video, zvuk), přehrávání z JS](https://github.com/klimesf/turing-machine-js/blob/master/src/main.js#L176) (1)
+- [x] [Offline aplikace	využití JS API pro zjišťování stavu](https://github.com/klimesf/turing-machine-js/blob/master/src/main.js#L359) (1)
 - [x] [JS práce se SVG	události, tvorba, úpravy](https://github.com/klimesf/turing-machine-js/blob/master/src/render.js#L21) (2)
 
 ### Ostatní / 5

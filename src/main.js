@@ -59,7 +59,36 @@ var machineState = new MachineState(
 )
 
 let readyForEvent = true;
+
+// Init muted global variable
 var muted = false;
+if (localStorage.getItem("muted") !== null) {
+    muted = localStorage.muted == 'true'
+}
+
+/**
+ * Redeaws <span id="muted"> to display current info about mute toggle.
+ */
+let redrawMutedSpan = () => {
+    let mutedEl = document.querySelector("#muted")
+    if (muted) {
+        mutedEl.innerHTML = "unmute"
+    } else {
+        mutedEl.innerHTML = "mute"
+    }
+}
+
+/**
+ * Toggles sound muting.
+ */
+let toggleMute = () => {
+    muted = !muted;
+    localStorage.muted = muted
+    redrawMutedSpan()
+}
+
+redrawMutedSpan(muted)
+
 
 /**
  * Resets the whole machine to the initial state.
@@ -164,6 +193,9 @@ document.onkeypress = function(e) {
     }
     if (e.code === "Space") {
         spacePressed()
+    }
+    if (e.code === "KeyM") {
+        toggleMute()
     }
 }
 
@@ -319,12 +351,9 @@ document.querySelector("a#cv34").addEventListener("click", (e) => {
     input = set34(transitionTable, machineState, reset, input)
 })
 
-document.querySelector("a#save-machine-state").addEventListener("click", (e) => {
-
-})
-
-document.querySelector("a#load-machine-state").addEventListener("click", (e) => {
-
+document.querySelector("a#mute").addEventListener("click", (e) => {
+    e.preventDefault()
+    toggleMute()
 })
 
 window.addEventListener("online", (e) => {
